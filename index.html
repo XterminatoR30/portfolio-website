@@ -38,7 +38,7 @@
       text-decoration-color: rgba(255, 255, 255, 0.5);
     }
 
-    /* Make ALL buttons slightly dark brown with white text */
+    /* Make ALL buttons white with black text */
     .btn,
     button,
     [type="button"],
@@ -46,9 +46,10 @@
     [type="reset"],
     .btn-primary, .btn-secondary, .btn-outline-primary, .btn-outline-secondary,
     .hero-btn {
-      background-color: #6B4F2D !important; /* slightly dark brown */
-      border-color: #6B4F2D !important;
-      color: #fff !important;
+      background-color: #ffffff !important;   /* white button */
+      border-color: #000000 !important;       /* black border */
+      color: #000000 !important;              /* black text */
+      border-width: 1px !important;           /* ensure visible border */
     }
     .btn:hover,
     button:hover,
@@ -57,9 +58,9 @@
     [type="reset"]:hover,
     .btn:focus, button:focus,
     .btn:active, button:active {
-      background-color: #5C4327 !important; /* a bit darker on hover/focus */
-      border-color: #5C4327 !important;
-      color: #fff !important;
+      background-color: #f0f0f0 !important;   /* light gray on hover/focus */
+      border-color: #000000 !important;
+      color: #000000 !important;
       box-shadow: none !important;
     }
 
