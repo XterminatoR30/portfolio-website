@@ -1,26 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
- <style>
-    #technologies h3 {
-      font-size: 48px; /* Increased size for "Proficient Languages and Tools" */
-      font-weight: 700;
-    }
-    .tech-badge {
-      transition: transform 0.3s ease;
-    }
-    .tech-badge:hover {
-      transform: scale(1.5); /* Enlarges the hovered icon */
-      z-index: 1; /* Ensures it stays above other icons */
-    }
-    .tech-badge img {
-      height: 40px; /* Consistent base size */
-      width: auto;
-    }
-    /* Reset scale for non-hovered icons */
-    .tech-badge:not(:hover) {
-      transform: scale(1);
-    }
-  </style>
 
 <head>
   <meta charset="utf-8">
@@ -53,6 +32,10 @@
       font-size: 48px; /* Increased size for "Trusted by Leading Brands" */
       font-weight: 700;
     }
+    #technologies h3 {
+      font-size: 48px; /* Increased size for "Proficient Languages and Tools" */
+      font-weight: 700;
+    }
     .client-badge {
       transition: transform 0.3s ease;
       cursor: pointer;
@@ -68,6 +51,22 @@
     }
     /* Reset scale for non-hovered icons */
     .client-badge:not(:hover) {
+      transform: scale(1);
+    }
+    .tech-badge {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .tech-badge:hover {
+      transform: scale(1.5); /* Enlarges the hovered icon */
+      z-index: 1; /* Ensures it stays above other icons */
+    }
+    .tech-badge img {
+      height: 40px; /* Consistent base size */
+      width: auto;
+    }
+    /* Reset scale for non-hovered icons */
+    .tech-badge:not(:hover) {
       transform: scale(1);
     }
   </style>
@@ -139,7 +138,7 @@
     <h3 class="about-title">KEVIN CLIFF GUNAWAN</h3>
 
     <p class="about-description fst-italic">
-      I've always been the kind of person who sees patterns where others see chaos. Whether it's analyzing customer behavior for major brands or building AI workflows that generate thousands of images, I thrive on turning complex data into intelligent solutions. My journey from engineering student to Senior AI Scientist has been driven by one constant: the belief that every dataset tells a story, and every algorithm can solve a real-world problem. When I'm not building machine learning models or automating workflows, you'll find me exploring the latest in generative AI and thinking about how technology can make businesses smarter and more efficient.
+      I've always been the kind of person who needs to understand the "why" behind things – and for me, that almost always starts with data. Whether it's deciding on a new project, planning my day, or even figuring out how long it takes to make coffee, I find myself diving into numbers, patterns, and possibilities. I love the process of analyzing, questioning, optimizing – not because it's required, but because it's how my brain naturally works. Data isn't just a career path for me – it's how I navigate the world.
     </p>
 
     <div class="row justify-content-center">
@@ -258,6 +257,35 @@
       </div>
 
     </section><!-- /Client Portfolio Section -->
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="technologies section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <h3 class="text-center mb-5" style="font-family: 'Raleway', sans-serif; font-size: 36px; font-weight: 600; color: var(--heading-color);">Proficient Languages and Tools:</h3>
+        
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3" style="min-height: 200px;">
+          <a href="https://git-scm.com/" target="_blank" class="tech-badge">
+            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
+          </a>
+          <a href="https://langchain.com" target="_blank" class="tech-badge">
+            <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
+          </a>
+          <a href="https://n8n.io" target="_blank" class="tech-badge">
+            <img src="https://img.shields.io/badge/n8n-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n"/>
+          </a>
+          <a href="https://www.python.org" target="_blank" class="tech-badge">
+            <img src="https://www.vectorlogo.zone/logos/python/python-vertical.svg" alt="python" style="height: 40px; width: auto;"/>
+          </a>
+          <a href="https://www.postgresql.org" target="_blank" class="tech-badge">
+            <img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-vertical.svg" alt="postgresql" style="height: 40px; width: auto;"/>
+          </a>
+        </div>
+
+      </div>
+
+    </section><!-- /Technologies Section -->
 
   </main>
 
