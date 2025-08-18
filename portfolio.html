@@ -26,6 +26,29 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* Normalize portfolio thumbnails: center and make uniform size */
+    .portfolio .portfolio-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;      /* center image and text block */
+      text-align: center;       /* center titles/descriptions */
+    }
+    .portfolio .portfolio-content img {
+      height: 200px;            /* uniform logo height on desktops */
+      width: auto;              /* preserve aspect ratio */
+      max-width: 100%;          /* don't overflow card width */
+      object-fit: contain;      /* contain inside the given height */
+      object-position: center;  /* center the image inside its box */
+      display: block;
+      margin: 0 auto;           /* center horizontally */
+    }
+    @media (max-width: 576px) {
+      .portfolio .portfolio-content img {
+        height: 160px;          /* slightly smaller on phones */
+      }
+    }
+  </style>
 
   <!-- =======================================================
   * Template Name: Personal
@@ -156,7 +179,7 @@
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analytics">
   <div class="portfolio-content h-100">
     <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/BEAUTYSHAPE.png" class="img-fluid" alt="Marketing Analytics Dashboards for FMCG">
-    <h5 class="project-name" style="padding-top: 20px;">FMCG Marketing Analytics</h5>
+    <h5 class="project-name" style="padding-top: 20px;">Fashion & Retail Marketing Analytics</h5>
     <div class="portfolio-info">
       <p class="mb-5 project-description">Visualized sales, segmentation, and best‑selling products for Miss Nomi, Beauty Shape, and Chocochips to guide monthly ad spend.</p>
       <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
