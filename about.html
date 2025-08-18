@@ -27,6 +27,28 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    #technologies h3 {
+      font-size: 48px; /* Increased size for "Proficient Languages and Tools" */
+      font-weight: 700;
+    }
+    .tech-badge {
+      transition: transform 0.3s ease;
+    }
+    .tech-badge:hover {
+      transform: scale(1.5); /* Enlarges the hovered icon */
+      z-index: 1; /* Ensures it stays above other icons */
+    }
+    .tech-badge img {
+      height: 40px; /* Consistent base size */
+      width: auto;
+    }
+    /* Reset scale for non-hovered icons */
+    .tech-badge:not(:hover) {
+      transform: scale(1);
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: Personal
   * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
@@ -59,7 +81,6 @@
   <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>
 
-
     </div>
   </header>
 
@@ -82,10 +103,6 @@
   </div>
 </div>
 <!-- End Page Title -->
-
-
-
-
 
     <!-- About Section -->
 <section id="about" class="about section">
@@ -178,7 +195,7 @@
 
         <h3 class="text-center mb-5" style="font-family: 'Raleway', sans-serif; font-size: 36px; font-weight: 600; color: var(--heading-color);">Proficient Languages and Tools:</h3>
         
-        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3" style="min-height: 200px;">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3" style="min-height: 200px; position: relative;">
           <a href="https://git-scm.com/" target="_blank" class="tech-badge">
             <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
           </a>
