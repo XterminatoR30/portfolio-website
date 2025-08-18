@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+ <style>
+    #technologies h3 {
+      font-size: 48px; /* Increased size for "Proficient Languages and Tools" */
+      font-weight: 700;
+    }
+    .tech-badge {
+      transition: transform 0.3s ease;
+    }
+    .tech-badge:hover {
+      transform: scale(1.5); /* Enlarges the hovered icon */
+      z-index: 1; /* Ensures it stays above other icons */
+    }
+    .tech-badge img {
+      height: 40px; /* Consistent base size */
+      width: auto;
+    }
+    /* Reset scale for non-hovered icons */
+    .tech-badge:not(:hover) {
+      transform: scale(1);
+    }
+  </style>
 
 <head>
   <meta charset="utf-8">
