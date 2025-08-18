@@ -28,14 +28,10 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Global overrides: force all text to white */
-    html, body { color: #fff !important; }
-    body, p, h1, h2, h3, h4, h5, h6, span, small, li, dt, dd, th, td, blockquote, figcaption, label, legend, a, button, input, select, textarea {
-      color: #fff !important;
-    }
+    /* Links inherit the surrounding text color (white inside dark sections, dark elsewhere) */
     a, a:visited, a:hover, a:active, a:focus {
-      color: #fff !important;
-      text-decoration-color: rgba(255, 255, 255, 0.5);
+      color: inherit !important;
+      text-decoration-color: currentColor;
     }
 
     /* Make ALL buttons white with black text */
@@ -64,7 +60,7 @@
       box-shadow: none !important;
     }
 
-    /* Ensure nav and dark sections also render white text */
+    /* Keep white text where it should be: dark sections and header/nav */
     .navmenu a { color: #fff !important; }
     .sitename { color: #fff !important; }
     .dark-background, .dark-background * { color: #fff !important; }
