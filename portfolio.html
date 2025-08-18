@@ -229,6 +229,7 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <!-- Bottom scripts area (near the end of the file) -->
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -241,9 +242,32 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
+  <script>
+    // Make all portfolio cards and their links go to Coming Soon
+    document.addEventListener('DOMContentLoaded', function () {
+      const targetUrl = 'coming-soon.html';
+
+      // Update the small link icon hrefs
+      document.querySelectorAll('.portfolio .details-link').forEach(a => {
+        a.setAttribute('href', targetUrl);
+        a.removeAttribute('target'); // open in same tab
+        a.removeAttribute('rel');
+      });
+
+      // Make the entire card clickable
+      document.querySelectorAll('.portfolio .portfolio-content').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function (e) {
+          // Prevent Isotope/other interactions from blocking navigation
+          if (!(e.target.closest('.portfolio-filters'))) {
+            window.location.href = targetUrl;
+          }
+        });
+      });
+    });
+  </script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
