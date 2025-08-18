@@ -27,6 +27,47 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /* Global overrides: force all text to black */
+    html, body { color: #000 !important; }
+    body, p, h1, h2, h3, h4, h5, h6, span, small, li, dt, dd, th, td, blockquote, figcaption, label, legend, a, button, input, select, textarea {
+      color: #000 !important;
+    }
+    a, a:visited, a:hover, a:active, a:focus {
+      color: #000 !important;
+      text-decoration-color: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Make ALL buttons beige with black text */
+    .btn,
+    button,
+    [type="button"],
+    [type="submit"],
+    [type="reset"],
+    .btn-primary, .btn-secondary, .btn-outline-primary, .btn-outline-secondary,
+    .hero-btn {
+      background-color: #f5f5dc !important; /* beige */
+      border-color: #f5f5dc !important;
+      color: #000 !important;
+    }
+    .btn:hover,
+    button:hover,
+    [type="button"]:hover,
+    [type="submit"]:hover,
+    [type="reset"]:hover,
+    .btn:focus, button:focus,
+    .btn:active, button:active {
+      background-color: #f5f5dc !important;
+      border-color: #f5f5dc !important;
+      color: #000 !important;
+      box-shadow: none !important;
+    }
+
+    /* Ensure nav and dark sections also render black text */
+    .navmenu a { color: #000 !important; }
+    .sitename { color: #000 !important; }
+    .dark-background, .dark-background * { color: #000 !important; }
+  </style>
   <!-- =======================================================
   * Template Name: Personal
   * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
