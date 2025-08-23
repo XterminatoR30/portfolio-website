@@ -162,8 +162,8 @@
     <section class="section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
-          <div class="col-lg-7">
-            <img src="BANKMEGA.png" alt="Bank Mega cover" class="hero-cover">
+          <div class="col-lg-7" data-aos="fade-right" data-aos-delay="100">
+            <!-- Bank Mega hero image removed per request -->
           </div>
           <div class="col-lg-5">
             <h5 class="mb-3">Tools Stack</h5>
@@ -193,28 +193,28 @@
             <h6 class="mt-4 mb-2">Tools &amp; Services Logos</h6>
             <div class="logo-grid mb-4" data-aos="fade-up" data-aos-delay="100">
               <div class="logo-item">
-                <img src="assets/img/logos/qwen.svg" alt="Qwen" title="Qwen" loading="lazy">
+                <img src="assets/img/Qwen3.png" alt="Qwen" title="Qwen" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/google-imagen.svg" alt="Google Imagen 4" title="Google Imagen 4" loading="lazy">
+                <img src="assets/img/Google_Imagen4.png" alt="Google Imagen 4" title="Google Imagen 4" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/photoroom.svg" alt="Photoroom" title="Photoroom" loading="lazy">
+                <img src="assets/img/Photoroom.png" alt="Photoroom" title="Photoroom" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/gradio.svg" alt="Gradio" title="Gradio" loading="lazy">
+                <img src="assets/img/Gradio.png" alt="Gradio" title="Gradio" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/leonardo.svg" alt="Leonardo AI" title="Leonardo AI" loading="lazy">
+                <img src="assets/img/Leonardo.png" alt="Leonardo AI" title="Leonardo AI" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/ideogram.svg" alt="Ideogram" title="Ideogram" loading="lazy">
+                <img src="assets/img/Ideogram.png" alt="Ideogram" title="Ideogram" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/aws-s3.svg" alt="AWS S3" title="AWS S3" loading="lazy">
+                <img src="assets/img/AWS_S3.png" alt="AWS S3" title="AWS S3" loading="lazy">
               </div>
               <div class="logo-item">
-                <img src="assets/img/logos/google-drive.svg" alt="Google Drive" title="Google Drive" loading="lazy">
+                <img src="assets/img/Gdrive.png" alt="Google Drive" title="Google Drive" loading="lazy">
               </div>
             </div>
 
@@ -364,5 +364,21 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    // Ensure AOS animates on both scroll directions for this page
+    window.addEventListener('load', function () {
+      if (window.AOS) {
+        AOS.init({
+          once: false,       // animate every time it enters viewport
+          mirror: true,      // animate when scrolling past elements upwards
+          duration: 700,
+          easing: 'ease-out-cubic',
+          offset: 60
+        });
+        setTimeout(function () { AOS.refreshHard(); }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
