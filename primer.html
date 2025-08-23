@@ -171,6 +171,8 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <!-- Add this so the preloader disappears and page behaviors work -->
+  <script src="assets/js/main.js"></script>
 
   <!-- Markdown renderer + highlight.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -189,7 +191,7 @@
     });
 
     // Load and render the markdown file
-    fetch('primer_documentation.md', { cache: 'no-store' })
+    fetch('assets/files/primer_documentation.md', { cache: 'no-store' })
       .then(resp => resp.text())
       .then(md => {
         const html = marked.parse(md);
@@ -206,7 +208,7 @@
       })
       .catch(err => {
         document.getElementById('markdown-root').innerHTML =
-          '<div class="alert alert-warning">Failed to load documentation. Please ensure primer_documentation.md is in the same folder.</div>';
+          '<div class="alert alert-warning">Failed to load documentation. Place <b>primer_documentation.md</b> in <code>assets/files/</code> and redeploy.</div>';
         console.error('Failed to load markdown:', err);
       });
   </script>
