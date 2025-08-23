@@ -127,14 +127,12 @@
 
 <!-- Bank Mega -->
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-genai">
-  <div class="portfolio-content h-100">
+  <div class="portfolio-content h-100" data-url="bank-mega.html">
     <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/BANKMEGA.png" class="img-fluid" alt="Bank Mega - Automated Generative Image Workflow">
     <h5 class="project-name" style="padding-top: 20px;">Bank Mega – Automated Generative Image Workflow</h5>
     <div class="portfolio-info">
       <p class="mb-5 project-description">Built workflow integrating Qwen 3, Imagen‑4 and other APIs to generate 2000+ AI images with automated background removal and prompt generation.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-link-45deg"></i>
-      </a>
+      <a href="bank-mega.html" title="Case Study" class="details-link"><i class="bi bi-link-45deg"></i></a>
     </div>
   </div>
 </div>
@@ -243,26 +241,28 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <script>
-    // Make all portfolio cards and their links go to Coming Soon
+    // Per-card routing: Bank Mega to its case study, others to Coming Soon
     document.addEventListener('DOMContentLoaded', function () {
-      const targetUrl = 'coming-soon.html';
+      const defaultUrl = 'coming-soon.html';
 
-      // Update the small link icon hrefs
-      document.querySelectorAll('.portfolio .details-link').forEach(a => {
-        a.setAttribute('href', targetUrl);
-        a.removeAttribute('target'); // open in same tab
-        a.removeAttribute('rel');
-      });
-
-      // Make the entire card clickable
       document.querySelectorAll('.portfolio .portfolio-content').forEach(card => {
+        const url = card.getAttribute('data-url') || defaultUrl;
+
+        // Make entire card clickable
         card.style.cursor = 'pointer';
         card.addEventListener('click', function (e) {
-          // Prevent Isotope/other interactions from blocking navigation
-          if (!(e.target.closest('.portfolio-filters'))) {
-            window.location.href = targetUrl;
+          if (!e.target.closest('.portfolio-filters')) {
+            window.location.href = url;
           }
         });
+
+        // Sync the small link icon to the same target
+        const link = card.querySelector('.details-link');
+        if (link) {
+          link.setAttribute('href', url);
+          link.removeAttribute('target');
+          link.removeAttribute('rel');
+        }
       });
     });
   </script>
