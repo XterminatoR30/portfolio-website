@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Bank Mega – Case Study</title>
+  <meta name="description" content="Automated Generative Image Workflow for Bank Mega">
+  <meta name="keywords" content="Bank Mega, Generative AI, Qwen, Imagen, Background Removal, Automation">
+
+  <!-- Favicons -->
+  <link href="assets\img\favicon-32x32.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files (match portfolio.html) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .logo-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 14px;
+      background: rgba(13, 110, 253, 0.1);
+      color: #0d6efd;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+      white-space: nowrap;
+    }
+    .logo-badge .dot {
+      inline-size: 8px;
+      block-size: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.9;
+    }
+    .hero-cover {
+      max-height: 340px;
+      object-fit: contain;
+      width: 100%;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    }
+    .features-list li {
+      margin-bottom: 8px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+    @media (max-width: 576px) {
+      .gallery img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex flex-column align-items-start text-white" style="line-height: 1.2;">
+        <h1 class="sitename mb-0" style="font-size: 30px;">Kevin Cliff Gunawan</h1>
+        <span class="logo-subtitle" style="font-size: 20px; font-weight: 500; color: var(--accent-color); white-space: nowrap;">
+          <span id="typed-logo">Senior AI Scientist</span>
+        </span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title" style="padding-top: 91px;" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-10">
+              <h1 class="page-title-heading" style="font-family: 'Raleway', sans-serif; font-size: 42px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.2;">
+                Bank Mega – Automated Generative Image Workflow
+              </h1>
+              <p class="resume-subtext text-center">
+                Generating 2000+ brand-ready images with automated prompts, background removal, and batching
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-7">
+            <img src="BANKMEGA.png" alt="Bank Mega cover" class="hero-cover">
+          </div>
+          <div class="col-lg-5">
+            <h5 class="mb-3">Tools Stack</h5>
+            <div class="logo-badges mb-4">
+              <span class="logo-badge"><span class="dot"></span> Qwen 3</span>
+              <span class="logo-badge"><span class="dot"></span> Imagen‑4</span>
+              <span class="logo-badge"><span class="dot"></span> Background Removal API</span>
+              <span class="logo-badge"><span class="dot"></span> Python</span>
+              <span class="logo-badge"><span class="dot"></span> Async Orchestration</span>
+            </div>
+
+            <h5 class="mb-3">Key Features</h5>
+            <ul class="features-list">
+              <li>Automated prompt generation with brand‑safe constraints</li>
+              <li>Batch processing pipeline for 2000+ images</li>
+              <li>Automatic background removal and post‑processing</li>
+              <li>Quality control with rejection/regen logic</li>
+              <li>Structured outputs with consistent sizing and formats</li>
+            </ul>
+
+            <div class="mt-4">
+              <a href="portfolio.html" class="btn btn-primary">
+                <i class="bi bi-arrow-left"></i> Back to Portfolio
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h5 class="mb-3">Sample Outputs</h5>
+        <div class="row gy-4 gallery" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-6 col-md-4">
+            <img src="0100300005.png" alt="Sample output 1">
+          </div>
+          <div class="col-6 col-md-4">
+            <img src="0100300010.png" alt="Sample output 2">
+          </div>
+          <div class="col-6 col-md-4">
+            <img src="0100300011.png" alt="Sample output 3">
+          </div>
+          <div class="col-6 col-md-4">
+            <img src="0100300012.png" alt="Sample output 4">
+          </div>
+          <div class="col-6 col-md-4">
+            <img src="0100300013.png" alt="Sample output 5">
+          </div>
+          <div class="col-6 col-md-4">
+            <img src="0100300014.png" alt="Sample output 6">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">Kevin Cliff Gunawan</h3>
+      <p>Senior AI Scientist — Generative AI • Automation • Analytics</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright Kevin Cliff Gunawan — All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">Kevin Cliff Gunawan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
