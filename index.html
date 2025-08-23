@@ -28,13 +28,44 @@
   <link href="assets/css/main.css" rel="stylesheet">
 
   <style>
-    /* Links inherit the surrounding text color (white inside dark sections, dark elsewhere) */
-    a, a:visited, a:hover, a:active, a:focus {
-      color: inherit !important;
-      text-decoration-color: currentColor;
+    /* Enhanced Typography & Hierarchy */
+    .hero-content h2 {
+      font-size: 4.5rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -2px !important;
+      margin-bottom: 1.5rem !important;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+      line-height: 1.1 !important;
+    }
+    
+    .hero-content p {
+      font-size: 1.8rem !important;
+      font-weight: 500 !important;
+      margin-bottom: 1.2rem !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
+    }
+    
+    .hero-content .quote {
+      font-size: 1.3rem !important;
+      font-style: italic !important;
+      opacity: 0.9 !important;
+      margin-bottom: 2.5rem !important;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 3rem !important;
+      }
+      .hero-content p {
+        font-size: 1.4rem !important;
+      }
+      .hero-content .quote {
+        font-size: 1.1rem !important;
+      }
     }
 
-    /* Semi-transparent (45%) glass buttons with black text and border — no white fills */
+    /* Enhanced Button Design with Teal/Cyan Theme */
     .btn,
     button,
     [type="button"],
@@ -42,25 +73,136 @@
     [type="reset"],
     .btn-primary, .btn-secondary, .btn-outline-primary, .btn-outline-secondary,
     .hero-btn {
-      background-color: rgba(200, 200, 200, 0.45) !important; /* 45% opacity light gray (not white) */
-      color: #000 !important;                                   /* black text */
-      border: 1px solid #000 !important;                        /* black border for contrast */
-      backdrop-filter: saturate(180%) blur(4px);                 /* glass effect for readability */
-      -webkit-backdrop-filter: saturate(180%) blur(4px);
-      font-weight: 600;
-      transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      background: linear-gradient(135deg, #20b2aa, #00ced1) !important;
+      color: #fff !important;
+      border: 2px solid #20b2aa !important;
+      border-radius: 50px !important;
+      padding: 15px 30px !important;
+      font-weight: 600 !important;
+      font-size: 1.1rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+      box-shadow: 0 8px 25px rgba(32, 178, 170, 0.3) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
     }
+    
+    .btn::before,
+    .hero-btn::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(135deg, #00ced1, #48d1cc) !important;
+      transition: left 0.4s ease !important;
+      z-index: -1 !important;
+    }
+    
     .btn:hover,
     button:hover,
     [type="button"]:hover,
     [type="submit"]:hover,
     [type="reset"]:hover,
     .btn:focus, button:focus,
-    .btn:active, button:active {
-      background-color: rgba(200, 200, 200, 0.60) !important;   /* slightly stronger on hover/focus */
-      color: #000 !important;
-      border-color: #000 !important;
-      box-shadow: none !important;
+    .btn:active, button:active,
+    .hero-btn:hover {
+      transform: translateY(-3px) scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(32, 178, 170, 0.4) !important;
+      border-color: #00ced1 !important;
+      color: #fff !important;
+    }
+    
+    .btn:hover::before,
+    .hero-btn:hover::before {
+      left: 0 !important;
+    }
+    
+    .btn:active,
+    .hero-btn:active {
+      transform: translateY(-1px) scale(1.02) !important;
+    }
+
+    /* Enhanced Social Links with Hover Effects */
+    .social-links a {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 50px !important;
+      height: 50px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      border-radius: 50% !important;
+      color: #fff !important;
+      font-size: 1.5rem !important;
+      margin: 0 10px !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+    }
+    
+    .social-links a:hover {
+      background: linear-gradient(135deg, #20b2aa, #00ced1) !important;
+      border-color: #20b2aa !important;
+      transform: translateY(-5px) scale(1.1) !important;
+      box-shadow: 0 10px 25px rgba(32, 178, 170, 0.4) !important;
+      color: #fff !important;
+    }
+
+    /* Smooth Scroll Animation */
+    html {
+      scroll-behavior: smooth !important;
+    }
+    
+    /* Enhanced CTA Buttons Container */
+    .cta-buttons {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 20px !important;
+      justify-content: center !important;
+      margin: 2.5rem 0 !important;
+    }
+    
+    @media (max-width: 576px) {
+      .cta-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+      
+      .hero-btn {
+        width: 100% !important;
+        max-width: 280px !important;
+      }
+    }
+
+    /* Floating Animation for Interactive Elements */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    .hero-content {
+      animation: float 6s ease-in-out infinite !important;
+    }
+    
+    /* Enhanced Text Contrast */
+    .hero-content * {
+      color: #fff !important;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    /* Links inherit the surrounding text color (white inside dark sections, dark elsewhere) */
+    a, a:visited, a:hover, a:active, a:focus {
+      color: inherit !important;
+      text-decoration-color: currentColor;
     }
 
     /* Keep white text where it should be: dark sections and header/nav */
@@ -68,13 +210,14 @@
     .sitename { color: #fff !important; }
     .dark-background, .dark-background * { color: #fff !important; }
 
-    /* Ensure buttons stay black text inside dark sections */
+    /* Ensure buttons stay white text */
     .dark-background .btn,
     .dark-background button,
     .dark-background [type="button"],
     .dark-background [type="submit"],
-    .dark-background [type="reset"] {
-      color: #000 !important;
+    .dark-background [type="reset"],
+    .dark-background .hero-btn {
+      color: #fff !important;
     }
   </style>
   <!-- =======================================================
@@ -126,9 +269,9 @@
     <p class="quote">What Comes Easy Won't Last, What Lasts Won't Come Easy.~ Data Science Enthusiast</p>
     
 <div class="cta-buttons">
-  <a href="portfolio.html" class="btn hero-btn">View My Work</a>
+  <a href="portfolio.html" class="btn hero-btn">Explore Projects</a>
   <a href="assets/files/KevinCliffGunawan_CV2025.pdf" class="btn hero-btn" target="_blank">Download Resume</a>
-  <a href="contact.html" class="btn hero-btn">Contact Me</a>
+  <a href="contact.html" class="btn hero-btn">Let's Connect</a>
 </div>
 
     <div class="social-links">
