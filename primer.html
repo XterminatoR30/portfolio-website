@@ -27,46 +27,51 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Optional code highlight (nice for your docs code blocks) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/styles/github.min.css">
-
+  <!-- Replace old markdown styles with compact flowchart styles -->
   <style>
-    /* Markdown container styling (GitHub-like readability) */
-    .markdown-body {
-      max-width: 980px;
+    .flowchart-wrap {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
-      line-height: 1.7;
-      font-size: 16px;
+      padding: 0 12px;
     }
-    .markdown-body h1,
-    .markdown-body h2,
-    .markdown-body h3 {
-      scroll-margin-top: 90px; /* account for fixed header */
-    }
-    .markdown-body img {
-      max-width: 100%;
+    svg.primer-flowchart {
+      width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
-    .markdown-body pre code {
-      white-space: pre-wrap; /* keep long code readable on mobile */
-      word-wrap: break-word;
+    .node {
+      fill: rgba(255, 255, 255, 0.03);
+      stroke: var(--accent-color, #00c2ff);
+      stroke-width: 2;
+      rx: 10;
     }
-    .doc-header {
-      text-align: center;
-      margin-bottom: 1.25rem;
+    .label {
+      fill: #eaeef2;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: .2px;
     }
-    .doc-header img {
-      height: 64px;
-      width: auto;
-      object-fit: contain;
-      filter: brightness(1.05);
+    .sub {
+      fill: #b6c1cd;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      font-size: 12.5px;
+      font-weight: 400;
     }
-    .doc-actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-      gap: .75rem;
+    .group-title {
+      fill: #8bd3ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+    .arrow {
+      stroke: #8bd3ff;
+      stroke-width: 2.2;
+      fill: none;
+      marker-end: url(#arrowhead);
+      opacity: .9;
     }
   </style>
 </head>
@@ -117,18 +122,131 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="doc-header">
-          <!-- Use local asset if available; otherwise this still works with your current remote path -->
-          <img src="assets/img/PRIMER.png" alt="Primer">
+      <div class="container flowchart-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="doc-header text-center mb-3">
+          <img src="assets/img/PRIMER.png" alt="Primer" style="height:64px; width:auto; object-fit:contain; filter:brightness(1.05);">
         </div>
 
-        <div id="markdown-root" class="markdown-body"></div>
+        <!-- Single comprehensive flowchart (responsive SVG) -->
+        <svg class="primer-flowchart" viewBox="0 0 1280 780" aria-label="Primer Flowchart">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#8bd3ff"></polygon>
+            </marker>
+          </defs>
 
-        <div class="doc-actions">
-          <a href="portfolio.html" class="btn btn-outline-primary">
-            <i class="bi bi-arrow-left"></i> Back to Portfolio
-          </a>
+          <!-- Column titles -->
+          <text class="group-title" x="210" y="40" text-anchor="middle">User Interface</text>
+          <text class="group-title" x="510" y="40" text-anchor="middle">API Integration</text>
+          <text class="group-title" x="810" y="40" text-anchor="middle">Processing Workflow</text>
+          <text class="group-title" x="1090" y="40" text-anchor="middle">Architecture</text>
+
+          <!-- Column X positions -->
+          <!-- UI: x=80 | API: x=380 | PROC: x=680 | ARCH: x=960 -->
+          <!-- Node width/height -->
+          <!-- w=260 h=90 -->
+
+          <!-- ========== USER INTERFACE (Left Column) ========== -->
+          <rect class="node" x="80" y="70" width="260" height="90"></rect>
+          <text class="label" x="210" y="105" text-anchor="middle">Upload / Select Images</text>
+          <text class="sub"   x="210" y="130" text-anchor="middle">Local files, drag & drop, or cloud pickers</text>
+
+          <rect class="node" x="80" y="200" width="260" height="90"></rect>
+          <text class="label" x="210" y="235" text-anchor="middle">Batch & Template Settings</text>
+          <text class="sub"   x="210" y="260" text-anchor="middle">Padding rules, aspect ratio, presets</text>
+
+          <rect class="node" x="80" y="330" width="260" height="90"></rect>
+          <text class="label" x="210" y="365" text-anchor="middle">Preview & Export</text>
+          <text class="sub"   x="210" y="390" text-anchor="middle">Visual preview, PNG/JPG/ZIP export</text>
+
+          <!-- ========== API INTEGRATION (Second Column) ========== -->
+          <rect class="node" x="380" y="70" width="260" height="90"></rect>
+          <text class="label" x="510" y="105" text-anchor="middle">Qwen VLM</text>
+          <text class="sub"   x="510" y="130" text-anchor="middle">Object tags • bbox • layout cues</text>
+
+          <rect class="node" x="380" y="200" width="260" height="90"></rect>
+          <text class="label" x="510" y="235" text-anchor="middle">PhotoRoom / BRIA / BiRefNet</text>
+          <text class="sub"   x="510" y="260" text-anchor="middle">Background removal / matting</text>
+
+          <rect class="node" x="380" y="330" width="260" height="90"></rect>
+          <text class="label" x="510" y="365" text-anchor="middle">AWS S3 / Google Drive</text>
+          <text class="sub"   x="510" y="390" text-anchor="middle">Asset storage & retrieval</text>
+
+          <!-- ========== PROCESSING WORKFLOW (Third Column) ========== -->
+          <rect class="node" x="680" y="70" width="260" height="90"></rect>
+          <text class="label" x="810" y="105" text-anchor="middle">Ingest</text>
+          <text class="sub"   x="810" y="130" text-anchor="middle">Read input list • validate images</text>
+
+          <rect class="node" x="680" y="180" width="260" height="90"></rect>
+          <text class="label" x="810" y="215" text-anchor="middle">Analyze (VLM)</text>
+          <text class="sub"   x="810" y="240" text-anchor="middle">Object position • ratio • prompts</text>
+
+          <rect class="node" x="680" y="290" width="260" height="90"></rect>
+          <text class="label" x="810" y="325" text-anchor="middle">Remove Background</text>
+          <text class="sub"   x="810" y="350" text-anchor="middle">High‑quality cutout / matte</text>
+
+          <rect class="node" x="680" y="400" width="260" height="90"></rect>
+          <text class="label" x="810" y="435" text-anchor="middle">Compute Padding</text>
+          <text class="sub"   x="810" y="460" text-anchor="middle">Smart centering • safe margins</text>
+
+          <rect class="node" x="680" y="510" width="260" height="90"></rect>
+          <text class="label" x="810" y="545" text-anchor="middle">Render Canvas</text>
+          <text class="sub"   x="810" y="570" text-anchor="middle">Template & ratio modes applied</text>
+
+          <rect class="node" x="680" y="620" width="260" height="90"></rect>
+          <text class="label" x="810" y="655" text-anchor="middle">Export Artifacts</text>
+          <text class="sub"   x="810" y="680" text-anchor="middle">PNG/JPG/ZIP • optional cloud save</text>
+
+          <!-- ========== ARCHITECTURE (Right Column) ========== -->
+          <rect class="node" x="960" y="70" width="260" height="90"></rect>
+          <text class="label" x="1090" y="105" text-anchor="middle">Client UI</text>
+          <text class="sub"   x="1090" y="130" text-anchor="middle">Bootstrap • AOS • Minimal JS</text>
+
+          <rect class="node" x="960" y="200" width="260" height="90"></rect>
+          <text class="label" x="1090" y="235" text-anchor="middle">Orchestrator</text>
+          <text class="sub"   x="1090" y="260" text-anchor="middle">Sequence API calls & compose</text>
+
+          <rect class="node" x="960" y="330" width="260" height="90"></rect>
+          <text class="label" x="1090" y="365" text-anchor="middle">External APIs</text>
+          <text class="sub"   x="1090" y="390" text-anchor="middle">Qwen • PhotoRoom/BRIA/BiRefNet</text>
+
+          <rect class="node" x="960" y="460" width="260" height="90"></rect>
+          <text class="label" x="1090" y="495" text-anchor="middle">Storage</text>
+          <text class="sub"   x="1090" y="520" text-anchor="middle">S3 / Google Drive (optional)</text>
+
+          <rect class="node" x="960" y="590" width="260" height="120"></rect>
+          <text class="label" x="1090" y="620" text-anchor="middle">Advanced Features</text>
+          <text class="sub"   x="1090" y="645" text-anchor="middle">Smart Centering • Aspect Ratios</text>
+          <text class="sub"   x="1090" y="665" text-anchor="middle">Template Presets • Batch Runner</text>
+
+          <!-- ========== CONNECTORS (arrows) ========== -->
+          <!-- UI -> Processing -->
+          <path class="arrow" d="M340,115 L680,115"></path>
+          <path class="arrow" d="M340,245 L680,205"></path>
+          <path class="arrow" d="M340,375 L680,665"></path>
+
+          <!-- Processing sequencing -->
+          <path class="arrow" d="M810,160 L810,180"></path>
+          <path class="arrow" d="M810,270 L810,290"></path>
+          <path class="arrow" d="M810,380 L810,400"></path>
+          <path class="arrow" d="M810,490 L810,510"></path>
+          <path class="arrow" d="M810,600 L810,620"></path>
+
+          <!-- Processing <-> API -->
+          <path class="arrow" d="M680,225 L640,225 L640,115 L380,115"></path> <!-- Analyze -> Qwen -->
+          <path class="arrow" d="M680,335 L640,335 L640,245 L380,245"></path> <!-- Remove BG -> PR/BRIA/BiRefNet -->
+          <path class="arrow" d="M680,665 L640,665 L640,375 L380,375"></path> <!-- Export -> S3/Drive -->
+
+          <!-- Architecture relations -->
+          <path class="arrow" d="M960,115 L940,115 L940,105 L940,95 L940,85 L680,85"></path>    <!-- Client UI -> Ingest -->
+          <path class="arrow" d="M960,245 L930,245 L930,450 L940,450 L940,430 L930,430 L930,420 L930,215 L940,215"></path> <!-- Orchestrator side-link -->
+          <path class="arrow" d="M960,365 L940,365 L940,245 L640,245 L640,225"></path>          <!-- External APIs -> Analyze -->
+          <path class="arrow" d="M960,495 L940,495 L940,375 L640,375"></path>                    <!-- Storage -> Export -->
+          <path class="arrow" d="M960,650 L940,650 L940,555 L680,555"></path>                    <!-- Advanced -> Render -->
+        </svg>
+
+        <div class="text-center mt-3">
+          <a href="portfolio.html" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Portfolio</a>
         </div>
       </div>
     </section>
@@ -171,46 +289,12 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <!-- Add this so the preloader disappears and page behaviors work -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Markdown renderer + highlight.js -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
-
+  <!-- Remove Marked/HighlightJS and markdown fetch; nothing else needed -->
   <script>
-    // Initialize AOS (animate on scroll)
-    AOS.init({ once: false, mirror: true, duration: 600 });
-
-    // Configure Marked for GitHub-flavored markdown
-    marked.setOptions({
-      gfm: true,
-      breaks: false,
-      headerIds: true,
-      mangle: false
-    });
-
-    // Load and render the markdown file
-    fetch('assets/files/primer_documentation.md', { cache: 'no-store' })
-      .then(resp => resp.text())
-      .then(md => {
-        const html = marked.parse(md);
-        const root = document.getElementById('markdown-root');
-        root.innerHTML = html;
-
-        // Syntax highlight after injection
-        document.querySelectorAll('pre code').forEach(block => {
-          try { hljs.highlightElement(block); } catch (e) {}
-        });
-
-        // Refresh AOS once content is in place
-        AOS.refresh();
-      })
-      .catch(err => {
-        document.getElementById('markdown-root').innerHTML =
-          '<div class="alert alert-warning">Failed to load documentation. Place <b>primer_documentation.md</b> in <code>assets/files/</code> and redeploy.</div>';
-        console.error('Failed to load markdown:', err);
-      });
+    // Optional: nudge AOS after SVG is painted
+    window.addEventListener('load', () => setTimeout(() => AOS.refresh(), 300));
   </script>
 </body>
 </html>
