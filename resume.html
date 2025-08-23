@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +26,195 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Breadcrumb styling */
+    .breadcrumb-nav {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .breadcrumb-nav a:hover {
+      color: var(--accent-color);
+    }
+    .breadcrumb-nav .separator {
+      margin: 0 10px;
+      opacity: 0.7;
+    }
+
+    /* Enhanced visual elements */
+    .project-stats {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05));
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 16px;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0d6efd;
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .client-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .challenge-solution {
+      background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.05));
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border: 1px solid rgba(255, 193, 7, 0.3);
+    }
+
+    .logo-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 14px;
+      background: rgba(13, 110, 253, 0.1);
+      color: #0d6efd;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+      white-space: nowrap;
+    }
+    .logo-badge .dot {
+      inline-size: 8px;
+      block-size: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.9;
+    }
+
+    /* Enhanced resume sections */
+    .resume-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 4px solid var(--accent-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resume-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .edu-timeline, .cert-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .edu-timeline::before, .cert-timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-color);
+    }
+    .edu-item, .cert-item {
+      position: relative;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .edu-dot, .cert-dot {
+      position: absolute;
+      left: -37px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      border: 3px solid #fff;
+    }
+
+    /* Skills enhancement */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .skill-item {
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(13, 110, 253, 0.05));
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(13, 110, 253, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover {
+      transform: translateY(-3px);
+    }
+    .skill-name {
+      font-weight: 600;
+      color: #0d6efd;
+      margin-bottom: 8px;
+    }
+    .skill-level {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Navigation improvements */
+    .portfolio-nav {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .portfolio-nav a {
+      display: block;
+      padding: 8px 12px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      margin: 4px 0;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+    .portfolio-nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
 </head>
 
 <body class="resume-page">
@@ -36,39 +225,50 @@
       <a href="index.html" class="logo d-flex flex-column align-items-start text-white" style="line-height: 1.2;">
          <h1 class="sitename mb-0" style="font-size: 30px;">Kevin Cliff Gunawan</h1>
         <span class="logo-subtitle" style="font-size: 20px; font-weight: 500; color: var(--accent-color); white-space: nowrap;">
-          <span id="typed-logo"></span>
+          <span id="typed-logo">Senior AI Scientist</span>
         </span>
       </a>
 
-
-<nav id="navmenu" class="navmenu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" >About</a></li>
-    <li><a href="resume.html"class="active">Resume</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-</nav>
-
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" >About</a></li>
+          <li><a href="resume.html"class="active">Resume</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
 
     </div>
   </header>
+
+  <!-- Portfolio Navigation Sidebar -->
+  <div class="portfolio-nav">
+    <a href="index.html" title="Back to Home"><i class="bi bi-house"></i> Home</a>
+    <a href="portfolio.html" title="Portfolio">Portfolio</a>
+    <a href="contact.html" title="Contact">Contact</a>
+  </div>
 
   <!-- Page Title -->
   <div class="page-title"style="padding-top: 91px;" data-aos="fade">
     <div class="heading">
       <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb-nav" data-aos="fade-down">
+          <a href="index.html">Home</a>
+          <span class="separator">></span>
+          <span>Resume</span>
+        </div>
+        
         <div class="row d-flex justify-content-center text-center">
           <div class="col-lg-10">
-            <h1>Resume</h1>
+            <h1 class="page-title-heading" style="font-family: 'Raleway', sans-serif; font-size: 42px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.2;">Resume</h1>
             <div class="d-flex justify-content-center">
               <p class="resume-subtext text-center">
                 Transforming data into intelligent solutions — explore my journey in AI and machine learning innovation.
               </p>
             </div>
-            <a href="assets/files/KevinCliffGunawan_CV2025.pdf" class="btn btn-primary mt-3" download>Download Resume</a>
           </div>
         </div>
       </div>
@@ -133,15 +333,27 @@
 
         <div class="col-lg-6">
           <h3 class="resume-title" data-aos="fade-up">Technical Skills</h3>
-          <div class="resume-item" data-aos="fade-up" data-aos-duration="600">
-            <h4>Area of Expertise</h4>
-            <ul>
-              <li><strong>Python</strong> - Advanced proficiency</li>
-              <li><strong>SQL</strong> - Advanced proficiency</li>
-              <li><strong>API Integration</strong> - Intermediate proficiency</li>
-              <li><strong>N8N Automation</strong> - Intermediate proficiency</li>
-              <li><strong>Generative AI & LLM</strong> - Intermediate proficiency</li>
-            </ul>
+          <div class="skills-grid" data-aos="fade-up" data-aos-duration="600">
+            <div class="skill-item">
+              <div class="skill-name">Python</div>
+              <div class="skill-level">Advanced proficiency</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">SQL</div>
+              <div class="skill-level">Advanced proficiency</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">API Integration</div>
+              <div class="skill-level">Intermediate proficiency</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">N8N Automation</div>
+              <div class="skill-level">Intermediate proficiency</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">Generative AI & LLM</div>
+              <div class="skill-level">Intermediate proficiency</div>
+            </div>
           </div>
 
           <h3 class="resume-title" data-aos="fade-up">Current Certifications</h3>
@@ -209,27 +421,21 @@
   <footer id="footer" class="footer dark-background">
     <div class="container">
       <h3 class="sitename">Kevin Cliff Gunawan</h3>
-      <p>Transforming data into intelligent solutions — one algorithm at a time</p>
+      <p>Senior AI Scientist — Generative AI • Automation • Analytics</p>
       <div class="social-links d-flex justify-content-center">
         <a href="https://www.linkedin.com/in/kevin-cliff-gunawan/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/kevincliffg" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
         <a href="mailto:kevincliffg@gmail.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-envelope"></i></a>
       </div>
       <div class="container">
-<div class="copyright">
-<span>Copyright Kevin Cliff Gunawan All Rights Reserved</span>
-
+        <div class="copyright">
+          <span>Copyright Kevin Cliff Gunawan — All Rights Reserved</span>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
           Designed by <a href="https://bootstrapmade.com/">Kevin Cliff Gunawan</a>
         </div>
       </div>
     </div>
-  </div>
   </footer>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -249,6 +455,22 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    // Ensure AOS animates on both scroll directions for this page
+    window.addEventListener('load', function () {
+      if (window.AOS) {
+        AOS.init({
+          once: false,       // animate every time it enters viewport
+          mirror: true,      // animate when scrolling past elements upwards
+          duration: 700,
+          easing: 'ease-out-cubic',
+          offset: 60
+        });
+        setTimeout(function () { AOS.refreshHard(); }, 100);
+      }
+    });
+  </script>
 </body>
 
 </html>
