@@ -9,8 +9,8 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon-32x32.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon-32x32.png" rel="icon" type="image/png">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" type="image/png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -27,6 +27,48 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    /* Global overrides: force all text to white */
+    html, body { color: #fff !important; }
+    body, p, h1, h2, h3, h4, h5, h6, span, small, li, dt, dd, th, td, blockquote, figcaption, label, legend, a, button, input, select, textarea {
+      color: #fff !important;
+    }
+    a, a:visited, a:hover, a:active, a:focus {
+      color: #fff !important;
+      text-decoration-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Make ALL buttons white with black text */
+    .btn,
+    button,
+    [type="button"],
+    [type="submit"],
+    [type="reset"],
+    .btn-primary, .btn-secondary, .btn-outline-primary, .btn-outline-secondary,
+    .hero-btn {
+      background-color: #ffffff !important;   /* white button */
+      border-color: #000000 !important;       /* black border */
+      color: #000000 !important;              /* black text */
+      border-width: 1px !important;           /* ensure visible border */
+    }
+    .btn:hover,
+    button:hover,
+    [type="button"]:hover,
+    [type="submit"]:hover,
+    [type="reset"]:hover,
+    .btn:focus, button:focus,
+    .btn:active, button:active {
+      background-color: #f0f0f0 !important;   /* light gray on hover/focus */
+      border-color: #000000 !important;
+      color: #000000 !important;
+      box-shadow: none !important;
+    }
+
+    /* Ensure nav and dark sections also render white text */
+    .navmenu a { color: #fff !important; }
+    .sitename { color: #fff !important; }
+    .dark-background, .dark-background * { color: #fff !important; }
+  </style>
   <!-- =======================================================
   * Template Name: Personal
   * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
