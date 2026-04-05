@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Primer Intelligent Image Pipeline - Kevin Cliff Gunawan</title>
+  <meta name="description" content="AI-Powered High-Volume Image Processing Pipeline - 25,000+ Assets Automated">
+  <meta name="keywords" content="AI, Image Processing, Qwen VLM, E-commerce Automation, Background Removal">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon-32x32.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 178, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .project-hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .project-hero .subtitle {
+      font-size: 24px;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.1) 0%, rgba(0, 178, 255, 0.02) 100%);
+      padding: 35px 25px;
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid rgba(0, 178, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 178, 255, 0.3);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent-color);
+      display: block;
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(0, 178, 255, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+    }
+
+    .feature-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 12px;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 178, 255, 0.15);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+    }
+
+    .feature-description {
+      font-size: 15px;
+      color: var(--default-color);
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .tech-badge {
+      background: var(--surface-color);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      color: var(--default-color);
+      border: 1px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .tech-badge:hover {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      transform: scale(1.05);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      padding: 60px 0;
+      margin-top: 60px;
+      border-radius: 12px;
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      background: #fff;
+      color: var(--accent-color);
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    .cta-btn:hover {
+      background: var(--background-color);
+      color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex flex-column align-items-start text-white" style="line-height: 1.2;">
+        <h1 class="sitename mb-0" style="font-size: 30px;">Kevin Cliff Gunawan</h1>
+        <span class="logo-subtitle" style="font-size: 20px; font-weight: 500; color: var(--accent-color);">Senior AI Scientist</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h1>Primer Intelligent Image Processing Pipeline</h1>
+            <p class="subtitle">AI-Powered Automation with Qwen VLM for E-Commerce Assets</p>
+            <p style="color: rgba(255,255,255,0.8); font-size: 18px; line-height: 1.8;">
+              An intelligent, high-volume image processing pipeline engineered to automate the resizing, padding, and optimization of product images for e-commerce platforms. Leveraging Qwen Vision-Language Model (VLM) for edge detection and sophisticated algorithms to ensure visual consistency across 25,000+ product assets.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pipeline Performance Metrics -->
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-images" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">25,000+</span>
+            </div>
+            <span class="stat-label">Assets Processed</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-speedometer2" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">95%</span>
+            </div>
+            <span class="stat-label">Time Reduction</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-check-circle" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">100%</span>
+            </div>
+            <span class="stat-label">Visual Consistency</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section" style="padding-top: 80px;">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Project Overview</h2>
+        <p style="font-size: 18px; line-height: 1.8; margin-top: 30px;">
+          This system is an <strong>AI-powered image processing pipeline</strong> designed to eliminate manual editing bottlenecks in e-commerce product photography. By combining Qwen VLM for intelligent edge detection with context-aware padding algorithms, it ensures marketplace-ready images at scale while maintaining perfect visual consistency.
+        </p>
+
+        <div class="row mt-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Key Achievements</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li>✅ Processed 25,000+ product images across 80+ brands</li>
+              <li>✅ Reduced manual editing time by 95% (hours → minutes)</li>
+              <li>✅ Achieved 100% visual consistency across catalogs</li>
+              <li>✅ Zero manual intervention for standard photography</li>
+              <li>✅ 98%+ edge detection accuracy with Qwen VLM</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Primary Use Cases</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li>🖼️ Automated canvas resizing with intelligent padding</li>
+              <li>🎯 AI-powered edge detection for cropped products</li>
+              <li>🔄 Multi-format conversion (RAW, AVIF, CMYK→RGB)</li>
+              <li>✂️ Background removal with 4 provider options</li>
+              <li>📐 80+ brand-specific canvas configurations</li>
+              <li>📦 Batch processing for high-volume workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section" style="background: var(--surface-color);">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Key Features</h2>
+
+        <div class="row g-4 mt-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-bounding-box"></i>
+              </div>
+              <h3 class="feature-title">Smart Edge Detection</h3>
+              <p class="feature-description">
+                Qwen VLM analyzes product boundaries to identify cropped edges (top/bottom/left/right). Applies context-aware padding rules: zero padding on cropped sides, glued placement for natural appearance.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-grid-3x3"></i>
+              </div>
+              <h3 class="feature-title">Adaptive Padding Engine</h3>
+              <p class="feature-description">
+                Intelligent padding algorithms adjust based on edge analysis. Single edge cropped → glue to edge. Multiple edges → adaptive rules. All intact → centered placement with full padding.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-file-earmark-image"></i>
+              </div>
+              <h3 class="feature-title">Multi-Format Support</h3>
+              <p class="feature-description">
+                Handles RAW files (CR2, NEF, ARW), AVIF, CMYK with ICC profiles. Automatic conversion to web-ready RGB/PNG. Preserves color accuracy through professional color management.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-scissors"></i>
+              </div>
+              <h3 class="feature-title">Background Removal</h3>
+              <p class="feature-description">
+                Four provider options: Rembg (local, fast), BIREFNET (GPU, highest quality), PhotoRoom (cloud, professional), Recraft (scalable). Original RGB values preserved after removal.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <h3 class="feature-title">80+ Canvas Configs</h3>
+              <p class="feature-description">
+                Brand-specific canvas sizes and padding for Lazada/Shopee, DOTCOM, and Zalora platforms. Pre-configured for Aetrex, Allbirds, Birkenstock, Dr. Martens, North Face, and 75+ more brands.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h3 class="feature-title">Batch Processing</h3>
+              <p class="feature-description">
+                Concurrent processing with ThreadPoolExecutor. ZIP archive support for bulk uploads. Real-time progress tracking. Processes 50-200 images/minute depending on provider and hardware.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Technology Stack</h2>
+
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">AI/ML Models</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Qwen VLM</span>
+              <span class="tech-badge">Rembg (U2-Net)</span>
+              <span class="tech-badge">BIREFNET</span>
+              <span class="tech-badge">PhotoRoom API</span>
+              <span class="tech-badge">Recraft API</span>
+              <span class="tech-badge">Transformers</span>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mt-4">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">Image Processing</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Pillow (PIL)</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">rawpy</span>
+              <span class="tech-badge">NumPy</span>
+              <span class="tech-badge">ImageCms</span>
+              <span class="tech-badge">pillow-avif</span>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mt-4">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">Backend & UI</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Python 3.10+</span>
+              <span class="tech-badge">Gradio</span>
+              <span class="tech-badge">PyTorch</span>
+              <span class="tech-badge">ThreadPoolExecutor</span>
+              <span class="tech-badge">dotenv</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Architecture Section -->
+    <section class="section" style="background: var(--surface-color);">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Processing Workflow</h2>
+        <p style="font-size: 18px; margin-top: 30px; margin-bottom: 30px; color: var(--default-color);">
+          End-to-end intelligent image processing pipeline
+        </p>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="feature-card mb-3">
+              <h4 style="color: var(--accent-color); margin-bottom: 15px;">1. Image Ingestion & Format Conversion</h4>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>Input:</strong> RAW (CR2/NEF/ARW), AVIF, JPG, PNG, WEBP<br>
+                <strong>Process:</strong> Automatic format detection → RAW to RGB conversion → CMYK to RGB with ICC profiles<br>
+                <strong>Output:</strong> Standardized RGB/RGBA images ready for processing
+              </p>
+            </div>
+
+            <div class="feature-card mb-3">
+              <h4 style="color: var(--accent-color); margin-bottom: 15px;">2. AI-Powered Edge Detection</h4>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>Model:</strong> Qwen Vision-Language Model (VLM)<br>
+                <strong>Analysis:</strong> Detects cropped edges (top/bottom/left/right) + tight boundary detection<br>
+                <strong>Accuracy:</strong> 98%+ edge classification for adaptive padding decisions
+              </p>
+            </div>
+
+            <div class="feature-card mb-3">
+              <h4 style="color: var(--accent-color); margin-bottom: 15px;">3. Intelligent Padding Application</h4>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>Rules Engine:</strong> Context-aware padding based on edge detection results<br>
+                <strong>Single Edge:</strong> Zero padding on cropped side, glue to canvas edge<br>
+                <strong>Multiple Edges:</strong> Adaptive logic (e.g., left+right cropped = fill width, 0px horizontal padding)<br>
+                <strong>All Intact:</strong> Centered placement with full padding on all sides
+              </p>
+            </div>
+
+            <div class="feature-card mb-3">
+              <h4 style="color: var(--accent-color); margin-bottom: 15px;">4. Background Removal (Optional)</h4>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>Providers:</strong> Rembg (2-3s), BIREFNET (5-8s, GPU), PhotoRoom (API), Recraft (API)<br>
+                <strong>Color Preservation:</strong> Original RGB values retained, only alpha channel modified<br>
+                <strong>Quality:</strong> 95-99% accuracy depending on provider
+              </p>
+            </div>
+
+            <div class="feature-card mb-3">
+              <h4 style="color: var(--accent-color); margin-bottom: 15px;">5. Canvas Rendering & Export</h4>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>Positioning:</strong> Center-aligned, edge-glued, or bottom-aligned based on analysis<br>
+                <strong>Background:</strong> Transparent, white, custom color, or dominant color extraction<br>
+                <strong>Output:</strong> PNG/JPG optimized for e-commerce platforms (Lazada, Shopee, DOTCOM)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Impact Section -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Results & Business Impact</h2>
+
+        <div class="row mt-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Quantified Results</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li><strong>25,000+ product images</strong> processed across multiple brands</li>
+              <li><strong>95% reduction</strong> in manual editing time (hours → minutes)</li>
+              <li><strong>100% visual consistency</strong> across e-commerce catalogs</li>
+              <li><strong>98%+ edge detection accuracy</strong> with Qwen VLM</li>
+              <li><strong>50-200 images/minute</strong> batch processing throughput</li>
+              <li><strong>Zero manual intervention</strong> for standard product photography</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Technical Highlights</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li><strong>80+ brand configurations</strong> with platform-specific sizing</li>
+              <li><strong>Multi-format support</strong> (RAW, AVIF, CMYK with ICC profiles)</li>
+              <li><strong>4 background removal providers</strong> for quality/speed tradeoffs</li>
+              <li><strong>Context-aware padding</strong> adapts to cropped product edges</li>
+              <li><strong>Original color preservation</strong> maintains product accuracy</li>
+              <li><strong>Concurrent processing</strong> with ThreadPoolExecutor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Interested in Intelligent Image Processing?</h2>
+        <p>Let's discuss how AI-powered automation can transform your e-commerce workflows</p>
+        <div>
+          <a href="portfolio.html" class="cta-btn">← Back to Portfolio</a>
+          <a href="contact.html" class="cta-btn">Contact Me →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">Kevin Cliff Gunawan</h3>
+      <p>Senior AI Scientist — Generative AI • Automation • Analytics</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/kevin-cliff-gunawan/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/kevincliffg" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="mailto:kevincliffg@gmail.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-envelope"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright © 2026 Kevin Cliff Gunawan — All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -27,25 +27,110 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <style>
-    /* Normalize portfolio thumbnails: center and make uniform size */
-    .portfolio .portfolio-content {
+    /* Flippable Card Design */
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      height: 450px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .flip-card-front {
+      background: var(--surface-color);
       display: flex;
       flex-direction: column;
-      align-items: center;      /* center image and text block */
-      text-align: center;       /* center titles/descriptions */
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      border: 2px solid rgba(0, 178, 255, 0.1);
     }
-    .portfolio .portfolio-content img {
-      height: 200px;            /* uniform logo height on desktops */
-      width: auto;              /* preserve aspect ratio */
-      max-width: 100%;          /* don't overflow card width */
-      object-fit: contain;      /* contain inside the given height */
-      object-position: center;  /* center the image inside its box */
-      display: block;
-      margin: 0 auto;           /* center horizontally */
+
+    .flip-card-front img {
+      max-height: 200px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      margin-bottom: 20px;
     }
-    @media (max-width: 576px) {
-      .portfolio .portfolio-content img {
-        height: 160px;          /* slightly smaller on phones */
+
+    .flip-card-front h5 {
+      color: var(--heading-color);
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .flip-card-back h5 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .flip-card-back p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .flip-card-btn {
+      background: #fff;
+      color: var(--accent-color);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .flip-card-btn:hover {
+      background: var(--background-color);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .flip-card {
+        height: 400px;
+      }
+      .flip-card-front img {
+        max-height: 150px;
       }
     }
   </style>
@@ -126,74 +211,85 @@
 
 <!-- Bank Mega -->
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-genai">
-  <div class="portfolio-content h-100">
-    <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/BANKMEGA.png" class="img-fluid" alt="Bank Mega - Automated Generative Image Workflow">
-    <h5 class="project-name" style="padding-top: 20px;">Bank Mega – Enterprise GenAI Marketing Pipeline</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Engineered an enterprise GenAI marketing pipeline using Gemini 3 Flash & Nano Banana. Automated the production of 20,000+ brand-compliant assets, reducing dependency on manual graphic design.</p>
-      <a href="bank-mega-project.html" title="View Full Project Details" class="details-link">
-        <i class="bi bi-link-45deg"></i>
-      </a>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/BANKMEGA.png" alt="Bank Mega">
+        <h5>Bank Mega – GenAI Marketing Pipeline</h5>
+      </div>
+      <div class="flip-card-back">
+        <h5>Bank Mega</h5>
+        <p>Engineered an enterprise GenAI marketing pipeline using Gemini 3 Flash & Nano Banana. Automated 20,000+ brand-compliant assets.</p>
+        <a href="bank-mega-project.html" class="flip-card-btn">View Project</a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- Primer -->
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation">
-  <div class="portfolio-content h-100">
-    <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/PRIMER.png" class="img-fluid" alt="Primer - Intelligent Image Processing Pipeline">
-    <h5 class="project-name" style="padding-top: 20px;">Primer – Intelligent Image Processing Pipeline</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Engineered a high-volume intelligent image processing pipeline using Qwen VLM. Automated the resizing and padding of 25,000+ product assets, eliminating manual editing bottlenecks and ensuring visual consistency across e-commerce catalogs.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- Prochiz -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-genai">
-  <div class="portfolio-content h-100">
-    <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/PROCHIZ.png" class="img-fluid" alt="Prochiz - AI Food Imagery Generation">
-    <h5 class="project-name" style="padding-top: 20px;">Prochiz – AI Food Imagery Generation</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Generated 50+ AI food imagery using GPT & Midjourney, which were posted on their social media platforms on a weekly basis.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/PRIMER.png" alt="Primer">
+        <h5>Primer – Image Processing Pipeline</h5>
+      </div>
+      <div class="flip-card-back">
+        <h5>Primer</h5>
+        <p>Engineered a high-volume intelligent image processing pipeline using Qwen VLM. Automated 25,000+ product assets with visual consistency.</p>
+        <a href="primer-project.html" class="flip-card-btn">View Project</a>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- GTech -->
 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation">
-  <div class="portfolio-content h-100">
-    <img src="assets/img/GTECHl.png" class="img-fluid" alt="GTech - Hybrid-Cloud Automation Infrastructure">
-    <h5 class="project-name" style="padding-top: 20px;">GTech – Hybrid-Cloud Automation Infrastructure</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Architected a secure hybrid-cloud automation infrastructure connecting VPS environments to Client OSS systems. Engineered a custom SSH bridge with rsync to enable seamless, high-throughput image processing between on-premise storage and cloud computation units.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="assets/img/GTECHl.png" alt="GTech">
+        <h5>GTech – Hybrid-Cloud Infrastructure</h5>
+      </div>
+      <div class="flip-card-back">
+        <h5>GTech</h5>
+        <p>Architected a secure hybrid-cloud automation infrastructure with custom SSH bridge. Processed 50,000+ images with 99.5% uptime.</p>
+        <a href="gtech-project.html" class="flip-card-btn">View Project</a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Uniqlo / Pronas -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analytics">
-  <div class="portfolio-content h-100">
-    <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/UQ.png" class="img-fluid" alt="Uniqlo & Pronas - AI Content Planner">
-    <h5 class="project-name" style="padding-top: 20px;">Uniqlo & Pronas – AI Content Planner</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Generated personalized content ideas and planners tailored to audience personas and product focus.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
+<!-- XCG Agent -->
+<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/XCG.png" alt="XCG Agent">
+        <h5>XCG – Autonomous Intelligence Agent</h5>
+      </div>
+      <div class="flip-card-back">
+        <h5>XCG Agent</h5>
+        <p>Production-grade autonomous AI agent for financial intelligence. Delivers daily market briefings via Telegram with RAG memory and multi-layer security.</p>
+        <a href="xcg-agent-project.html" class="flip-card-btn">View Project</a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Miss Nomi / Beauty Shape / Chocochips -->
-<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analytics">
-  <div class="portfolio-content h-100">
-    <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/BEAUTYSHAPE.png" class="img-fluid" alt="Marketing Analytics Dashboards for FMCG">
-    <h5 class="project-name" style="padding-top: 20px;">Fashion & Retail Marketing Analytics</h5>
-    <div class="portfolio-info">
-      <p class="mb-5 project-description">Visualized sales, segmentation, and best‑selling products for Miss Nomi, Beauty Shape, and Chocochips to guide monthly ad spend.</p>
-      <a href="#" title="Case Study" class="details-link" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i></a>
+<!-- Prochiz -->
+<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-genai">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://raw.githubusercontent.com/XterminatoR30/portfolio-website/main/assets/img/PROCHIZ.png" alt="Prochiz">
+        <h5>Prochiz – AI Food Imagery</h5>
+      </div>
+      <div class="flip-card-back">
+        <h5>Prochiz</h5>
+        <p>Generated 50+ AI food imagery using GPT & Midjourney for weekly social media content on their platforms.</p>
+        <a href="#" class="flip-card-btn">Coming Soon</a>
+      </div>
     </div>
   </div>
 </div>

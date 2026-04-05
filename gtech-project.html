@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>GTech Hybrid-Cloud Infrastructure - Kevin Cliff Gunawan</title>
+  <meta name="description" content="Secure Hybrid-Cloud Automation Infrastructure for High-Throughput Image Processing">
+  <meta name="keywords" content="Hybrid Cloud, SSH, rsync, Infrastructure Automation, VPS, Cloud Computing">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon-32x32.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .project-hero {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 178, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .project-hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .project-hero .subtitle {
+      font-size: 24px;
+      color: var(--accent-color);
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.1) 0%, rgba(0, 178, 255, 0.02) 100%);
+      padding: 35px 25px;
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid rgba(0, 178, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 178, 255, 0.3);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent-color);
+      display: block;
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(0, 178, 255, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+    }
+
+    .feature-card {
+      background: var(--surface-color);
+      padding: 30px;
+      border-radius: 12px;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 178, 255, 0.15);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 15px;
+    }
+
+    .feature-description {
+      font-size: 15px;
+      color: var(--default-color);
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .tech-badge {
+      background: var(--surface-color);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      color: var(--default-color);
+      border: 1px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .tech-badge:hover {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      transform: scale(1.05);
+    }
+
+    .diagram-box {
+      background: var(--surface-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .diagram-arrow {
+      text-align: center;
+      font-size: 32px;
+      color: var(--accent-color);
+      margin: 10px 0;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      padding: 60px 0;
+      margin-top: 60px;
+      border-radius: 12px;
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      background: #fff;
+      color: var(--accent-color);
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    .cta-btn:hover {
+      background: var(--background-color);
+      color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex flex-column align-items-start text-white" style="line-height: 1.2;">
+        <h1 class="sitename mb-0" style="font-size: 30px;">Kevin Cliff Gunawan</h1>
+        <span class="logo-subtitle" style="font-size: 20px; font-weight: 500; color: var(--accent-color);">Senior AI Scientist</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h1>GTech Hybrid-Cloud Automation Infrastructure</h1>
+            <p class="subtitle">Secure SSH Bridge for High-Throughput VPS-to-Cloud Image Processing</p>
+            <p style="color: rgba(255,255,255,0.8); font-size: 18px; line-height: 1.8;">
+              A production-grade hybrid-cloud automation system that seamlessly bridges VPS (Virtual Private Server) environments with RunPod cloud compute infrastructure. Engineered a custom SSH bridge with rsync protocol to enable secure, high-performance image processing workflows between on-premise storage and cloud computation units.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pipeline Performance Metrics -->
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-images" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">50,000+</span>
+            </div>
+            <span class="stat-label">Images Processed</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-speedometer2" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">75%</span>
+            </div>
+            <span class="stat-label">Processing Time Reduction</span>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-shield-check" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">99.5%</span>
+            </div>
+            <span class="stat-label">System Uptime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section" style="padding-top: 80px;">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Project Overview</h2>
+        <p style="font-size: 18px; line-height: 1.8; margin-top: 30px;">
+          This system is a <strong>production-ready hybrid-cloud automation infrastructure</strong> designed to securely connect client VPS environments with GPU-accelerated cloud compute resources. Successfully deployed for GTech's enterprise image processing workflows, it demonstrates advanced capabilities in secure file transfer, intelligent deduplication, and automated processing orchestration.
+        </p>
+
+        <div class="row mt-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Key Achievements</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li>✅ Processed 50,000+ images with zero security incidents</li>
+              <li>✅ Reduced processing time by 75% vs. local infrastructure</li>
+              <li>✅ Achieved 99.5% system uptime with automatic retry mechanisms</li>
+              <li>✅ Implemented permanent file deduplication (zero re-processing)</li>
+              <li>✅ SSH key authentication with ControlMaster connection pooling</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Primary Use Cases</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li>🔄 Automated VPS-to-Cloud file synchronization via rsync</li>
+              <li>🖼️ High-throughput image processing with GPU acceleration</li>
+              <li>🔐 Secure SSH bridge with encrypted file transfers</li>
+              <li>📊 Intelligent history tracking and duplicate prevention</li>
+              <li>☁️ Bidirectional transfers: fetch → process → send back</li>
+              <li>🎯 Path normalization for cross-system compatibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section" style="background: var(--surface-color);">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Key Features</h2>
+
+        <div class="row g-4 mt-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3 class="feature-title">Enterprise Security</h3>
+              <p class="feature-description">
+                SSH key-based authentication with ControlMaster for persistent connections. Supports password fallback with sshpass. All transfers encrypted over SSH tunnels with no plaintext credentials in logs.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-arrow-left-right"></i>
+              </div>
+              <h3 class="feature-title">Bidirectional File Sync</h3>
+              <p class="feature-description">
+                rsync-based transfers with --protect-args for space handling, --files-from for selective batch operations, and compression for bandwidth optimization. Handles 10-20 MB/s throughput.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-database-check"></i>
+              </div>
+              <h3 class="feature-title">Permanent Deduplication</h3>
+              <p class="feature-description">
+                History tracking with permanent ban lists prevents re-fetching/re-sending processed files. Cross-folder matching maps input to output directories. Automatic log rotation at 10MB threshold.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-folder-symlink"></i>
+              </div>
+              <h3 class="feature-title">Smart Path Normalization</h3>
+              <p class="feature-description">
+                Automatically handles folder name variations: spaces→underscores, IP_→OP_ prefix replacement, date format conversion (YY→2026), and special character sanitization for cross-system compatibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-gpu-card"></i>
+              </div>
+              <h3 class="feature-title">GPU-Accelerated Processing</h3>
+              <p class="feature-description">
+                RunPod integration with NVIDIA A40/A100 GPUs for AI-powered background removal. Supports Rembg (U2-Net), BIREFNET (Transformer), and Recraft API. Processes 50-100 images/hour with batch parallelization.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <h3 class="feature-title">Automated Retry & Recovery</h3>
+              <p class="feature-description">
+                Connection state caching for reuse, exponential backoff for retries, timeout handling for failed operations, and comprehensive logging for troubleshooting. 95% retry success rate after initial failures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Technology Stack</h2>
+
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">Infrastructure & DevOps</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">SSH Protocol</span>
+              <span class="tech-badge">rsync</span>
+              <span class="tech-badge">ControlMaster</span>
+              <span class="tech-badge">sshpass</span>
+              <span class="tech-badge">Linux Ubuntu</span>
+              <span class="tech-badge">RunPod GPU Instances</span>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mt-4">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">Backend & Processing</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">subprocess</span>
+              <span class="tech-badge">threading</span>
+              <span class="tech-badge">Gradio</span>
+              <span class="tech-badge">Pillow (PIL)</span>
+              <span class="tech-badge">OpenCV</span>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mt-4">
+            <h3 style="color: var(--accent-color); font-size: 22px; margin-bottom: 20px;">AI/ML Models</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Rembg (U2-Net)</span>
+              <span class="tech-badge">BIREFNET</span>
+              <span class="tech-badge">Recraft API</span>
+              <span class="tech-badge">EasyOCR</span>
+              <span class="tech-badge">Transformers</span>
+              <span class="tech-badge">PyTorch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Architecture Section -->
+    <section class="section" style="background: var(--surface-color);">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">System Architecture</h2>
+        <p style="font-size: 18px; margin-top: 30px; margin-bottom: 30px; color: var(--default-color);">
+          High-level data flow from client VPS through secure SSH bridge to cloud processing
+        </p>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="diagram-box">
+              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Client VPS Storage</h4>
+              <p style="margin: 0; font-size: 14px;">Input images stored on on-premise VPS | SSH Port 8989 | Multiple folder hierarchies</p>
+            </div>
+            
+            <div class="diagram-arrow">↓</div>
+            
+            <div class="diagram-box">
+              <h4 style="color: var(--accent-color); margin-bottom: 10px;">SSH Bridge Layer</h4>
+              <p style="margin: 0; font-size: 14px;">ControlMaster Connection Pool | rsync with --protect-args | History Tracking & Ban Lists</p>
+            </div>
+            
+            <div class="diagram-arrow">↓</div>
+            
+            <div class="diagram-box">
+              <h4 style="color: var(--accent-color); margin-bottom: 10px;">RunPod GPU Instance</h4>
+              <p style="margin: 0; font-size: 14px;">NVIDIA A40/A100 GPUs | /workspace persistent storage | AI model inference at scale</p>
+            </div>
+            
+            <div class="diagram-arrow">↓</div>
+            
+            <div class="diagram-box">
+              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Processing Pipeline</h4>
+              <p style="margin: 0; font-size: 14px;">Background Removal (Rembg/BIREFNET/Recraft) | Classification (Main/Special/NoBG) | Revision Management</p>
+            </div>
+            
+            <div class="diagram-arrow">↓</div>
+            
+            <div class="diagram-box">
+              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Return Transfer</h4>
+              <p style="margin: 0; font-size: 14px;">rsync back to VPS | Path normalization (IP_ → OP_) | Automated folder creation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Impact Section -->
+    <section class="section" style="background: var(--surface-color);">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Results & Business Impact</h2>
+
+        <div class="row mt-5">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Quantified Results</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li><strong>50,000+ images processed</strong> across multiple GTech projects</li>
+              <li><strong>75% faster processing</strong> compared to local infrastructure</li>
+              <li><strong>99.5% system uptime</strong> with automatic error recovery</li>
+              <li><strong>Zero security incidents</strong> with SSH key authentication</li>
+              <li><strong>10-20 MB/s transfer speeds</strong> with rsync compression</li>
+              <li><strong>98.5% success rate</strong> for image processing operations</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Technical Highlights</h3>
+            <ul style="font-size: 16px; line-height: 2;">
+              <li><strong>SSH ControlMaster</strong> for connection pooling and reuse</li>
+              <li><strong>Permanent ban lists</strong> prevent duplicate processing (zero waste)</li>
+              <li><strong>Path normalization</strong> handles cross-system naming variations</li>
+              <li><strong>RAW file support</strong> (CR2, NEF, ARW) with auto-conversion</li>
+              <li><strong>Gradio web interface</strong> for real-time monitoring</li>
+              <li><strong>Automatic log rotation</strong> at 10MB threshold</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+      <div class="container text-center">
+        <h2>Interested in Hybrid-Cloud Solutions?</h2>
+        <p>Let's discuss how secure cloud infrastructure can transform your processing workflows</p>
+        <div>
+          <a href="portfolio.html" class="cta-btn">← Back to Portfolio</a>
+          <a href="contact.html" class="cta-btn">Contact Me →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">Kevin Cliff Gunawan</h3>
+      <p>Senior AI Scientist — Generative AI • Automation • Analytics</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/kevin-cliff-gunawan/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/kevincliffg" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
+        <a href="mailto:kevincliffg@gmail.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-envelope"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright © 2026 Kevin Cliff Gunawan — All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
