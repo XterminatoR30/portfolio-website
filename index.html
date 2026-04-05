@@ -41,6 +41,46 @@
     .hero p {
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
+
+    /* Enhanced Hero Buttons */
+    .hero-btn {
+      background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+      color: #ffffff !important;
+      padding: 18px 45px;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 8px 25px rgba(0, 178, 255, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-btn:hover {
+      background: linear-gradient(135deg, #0056b3 0%, var(--accent-color) 100%);
+      color: #ffffff !important;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 178, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .hero-btn {
+        padding: 16px 35px;
+        font-size: 18px;
+      }
+    }
   </style>
   <!-- =======================================================
   * Template Name: Personal
