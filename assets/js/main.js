@@ -92,11 +92,11 @@
     });
   }
 
-  // TOP-LEFT TYPED ANIMATION (Vineet Reddy - Roles)
+  // TOP-LEFT TYPED ANIMATION
   const typedLogo = document.querySelector('#typed-logo');
   if (typedLogo) {
     new Typed('#typed-logo', {
-      strings: ["Data Scientist", "AI Engineer"],
+      strings: ["Senior AI Scientist", "AI Engineer", "Data Scientist"],
       loop: true,
       typeSpeed: 60,
       backSpeed: 30,

@@ -801,23 +801,27 @@ section,
 }
 /* Hero Section Custom Buttons */
 .hero .hero-btn {
-  background-color: #007bff; /* Bootstrap Blue or adjust to #00b2ff if you want your neon */
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 500;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
   text-transform: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   display: inline-block;
   text-align: center;
   text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 178, 255, 0.3);
 }
 
 .hero .hero-btn:hover {
-  background-color: #0069d9; /* Slightly darker on hover */
-  color: #ffffff;
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 178, 255, 0.4);
   text-decoration: none;
 }
 
@@ -868,6 +872,7 @@ section,
   justify-content: center;
   position: relative;
   z-index: 1;
+  transition: all 0.3s ease;
 }
 
 .stats .stats-item {
@@ -878,15 +883,28 @@ section,
   position: relative;
   text-align: center;
   box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  border-radius: 8px;
   z-index: 0;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.stats .stats-item:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0px 4px 40px rgba(0, 178, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.stats .stats-item:hover i {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
 }
 
 .stats .stats-item span {
   font-size: 36px;
   display: block;
   font-weight: 700;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: var(--accent-color);
 }
 
 .stats .stats-item p {
@@ -894,6 +912,7 @@ section,
   margin: 0;
   font-family: var(--heading-font);
   font-size: 16px;
+  color: var(--default-color);
 }
 
 /*--------------------------------------------------------------
@@ -1440,6 +1459,16 @@ section,
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.portfolio .portfolio-content:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 25px rgba(0, 178, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 .portfolio .portfolio-content img {
@@ -1663,14 +1692,22 @@ section,
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
+  border: 2px solid var(--accent-color);
+  padding: 12px 35px;
+  transition: all 0.3s ease;
   border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 178, 255, 0.3);
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 178, 255, 0.4);
 }
 /* Force padding to prevent dot from overlapping text */
 .edu-timeline .edu-content {
@@ -1816,25 +1853,34 @@ section,
   font-size: 1.05rem;
 }
 .cta-buttons {
-  margin-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .cta-buttons .btn {
   display: inline-block;
-  background-color: #0d6efd;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  margin: 5px;
-  border-radius: 6px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border: 2px solid var(--accent-color);
+  padding: 12px 28px;
+  margin: 0;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 178, 255, 0.3);
 }
 
 .cta-buttons .btn:hover {
-  background-color: #0b5ed7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 178, 255, 0.4);
 }
 .logo-img {
   max-height: 42px;

@@ -1,21 +1,31 @@
 # Kevin Cliff Gunawan - Senior AI Scientist Portfolio
 
-Senior AI Scientist with 4+ years of proven experience in end-to-end data science solutions, specializing in generative AI workflows, machine learning automation, and enterprise-scale data analytics.
+Professional portfolio website showcasing production-ready Generative AI solutions and enterprise-scale automation projects.
 
-## 🏆 Key Achievements
-- Built automated AI workflows generating 2000+ images, automatic background removal & canvas resizing for Bank Mega & Primer
-- Developed ML-based SaaS platform (AdVize) for SME campaign optimization  
-- Created AI content generation systems for Prochiz
-- Best Employee of the Month (Nov 2022)
+## � About This Portfolio
 
-## 🚀 Expertise Areas
-- **Generative AI & LLM** - Advanced prompt engineering, multimodal AI
-- **Machine Learning** - End-to-end ML pipelines, automation workflows
-- **Computer Vision** - Image generation, object detection, background removal
-- **API Integration**
+This website showcases my work as a Senior AI Scientist with 4+ years of experience in production AI systems, featuring:
+
+- **Home** - Introduction and quick access to key sections
+- **About** - Professional background, achievements, and technical expertise
+- **Portfolio** - Enterprise AI projects with measurable impact (Bank Mega, Primer, GTech, etc.)
+- **Contact** - Professional contact form and social links
+
+## 🏆 Featured Work
+
+- **45,000+ assets automated** across major enterprise clients
+- **7 enterprise clients** including Bank Mega, Primer, GTech, Prochiz
+- **4+ years** in AI production systems
+- **3x Best Employee of the Month** awards
 
 ## 🛠️ Technical Stack
-- **Languages:** Python (Advanced), SQL (Advanced)
-- **AI/ML:** Qwen 3, Imagen-4, LLM Integration
-- **Automation:** N8N, API Integration
-- **Industries:** Banking, Retail, FMCG, Digital Marketing
+
+- **AI/ML:** Qwen VLM, ChromaDB, CLIP, LangChain, FastAPI
+- **Engineering:** GCP, VPS, Docker, SSH/rsync, CI/CD, API Integration
+- **Methods:** RAG, Multi-agent Systems, Prompt Engineering, GenAI Product Development
+
+## 📧 Contact
+
+- Email: kevincliffg@gmail.com
+- LinkedIn: [kevin-cliff](https://www.linkedin.com/in/kevin-cliff/)
+- GitHub: [XterminatoR30](https://github.com/XterminatoR30)
