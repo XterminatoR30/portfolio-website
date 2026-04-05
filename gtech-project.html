@@ -492,38 +492,38 @@
         </p>
 
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6 mb-4">
             <div class="diagram-box">
               <h4 style="color: var(--accent-color); margin-bottom: 10px;">Client VPS Storage</h4>
-              <p style="margin: 0; font-size: 14px;">Input images stored on on-premise VPS | SSH Port 8989 | Multiple folder hierarchies</p>
+              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">Input images on on-premise VPS<br>SSH Port 8989 | Multiple folders</p>
             </div>
             
             <div class="diagram-arrow">↓</div>
             
             <div class="diagram-box">
               <h4 style="color: var(--accent-color); margin-bottom: 10px;">SSH Bridge Layer</h4>
-              <p style="margin: 0; font-size: 14px;">ControlMaster Connection Pool | rsync with --protect-args | History Tracking & Ban Lists</p>
+              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">ControlMaster Pool<br>rsync with --protect-args<br>History Tracking</p>
             </div>
             
             <div class="diagram-arrow">↓</div>
             
             <div class="diagram-box">
               <h4 style="color: var(--accent-color); margin-bottom: 10px;">RunPod GPU Instance</h4>
-              <p style="margin: 0; font-size: 14px;">NVIDIA A40/A100 GPUs | /workspace persistent storage | AI model inference at scale</p>
+              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">NVIDIA A40/A100 GPUs<br>/workspace persistent storage<br>AI model inference at scale</p>
             </div>
-            
-            <div class="diagram-arrow">↓</div>
-            
+          </div>
+
+          <div class="col-lg-6 mb-4">
             <div class="diagram-box">
               <h4 style="color: var(--accent-color); margin-bottom: 10px;">Processing Pipeline</h4>
-              <p style="margin: 0; font-size: 14px;">Background Removal (Rembg/BIREFNET/Recraft) | Classification (Main/Special/NoBG) | Revision Management</p>
+              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">Background Removal<br>(Rembg/BIREFNET/Recraft)<br>Classification (Main/Special/NoBG)<br>Revision Management</p>
             </div>
             
             <div class="diagram-arrow">↓</div>
             
             <div class="diagram-box">
               <h4 style="color: var(--accent-color); margin-bottom: 10px;">Return Transfer</h4>
-              <p style="margin: 0; font-size: 14px;">rsync back to VPS | Path normalization (IP_ → OP_) | Automated folder creation</p>
+              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">rsync back to VPS<br>Path normalization (IP_ → OP_)<br>Automated folder creation</p>
             </div>
           </div>
         </div>
