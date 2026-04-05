@@ -560,49 +560,6 @@
       </div>
     </section>
 
-    <!-- System Architecture Section -->
-    <section class="section" style="background: var(--surface-color);">
-      <div class="container" data-aos="fade-up">
-        <h2 class="section-title">System Architecture</h2>
-
-        <div class="architecture-diagram mt-5">
-          <div class="diagram-box">
-            <h4 style="color: var(--accent-color); margin-bottom: 10px;">Gradio Web Interface</h4>
-            <p style="margin: 0; font-size: 14px;">Generation | Inpainting | Upscale | BG Removal | Settings</p>
-          </div>
-          
-          <div class="diagram-arrow">↓</div>
-          
-          <div class="diagram-box">
-            <h4 style="color: var(--accent-color); margin-bottom: 10px;">FastAPI Backend Layer</h4>
-            <p style="margin: 0; font-size: 14px;">Request validation, authentication, rate limiting</p>
-          </div>
-          
-          <div class="diagram-arrow">↓</div>
-          
-          <div class="diagram-box">
-            <h4 style="color: var(--accent-color); margin-bottom: 10px;">AI Provider Orchestration</h4>
-            <p style="margin: 0; font-size: 14px;">Gemini (4 regions) | Imagen-4 | Ideogram | LoRA</p>
-          </div>
-          
-          <div class="diagram-arrow">↓</div>
-          
-          <div class="diagram-box">
-            <h4 style="color: var(--accent-color); margin-bottom: 10px;">Image Processing Pipeline</h4>
-            <p style="margin: 0; font-size: 14px;">Generation → BG Removal → Subject Maximize → Card Template → Quality Check</p>
-          </div>
-          
-          <div class="diagram-arrow">↓</div>
-          
-          <div class="diagram-box">
-            <h4 style="color: var(--accent-color); margin-bottom: 10px;">Storage & Distribution</h4>
-            <p style="margin: 0; font-size: 14px;">Local Storage | Google Drive (Hierarchical) | AWS S3 (Backup)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
     <!-- Results & Impact Section -->
     <section class="section" style="background: var(--surface-color);">
       <div class="container" data-aos="fade-up">

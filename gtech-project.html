@@ -483,53 +483,6 @@
       </div>
     </section>
 
-    <!-- System Architecture Section -->
-    <section class="section" style="background: var(--surface-color);">
-      <div class="container" data-aos="fade-up">
-        <h2 class="section-title">System Architecture</h2>
-        <p style="font-size: 18px; margin-top: 30px; margin-bottom: 30px; color: var(--default-color);">
-          High-level data flow from client VPS through secure SSH bridge to cloud processing
-        </p>
-
-        <div class="row">
-          <div class="col-lg-6 mb-4">
-            <div class="diagram-box">
-              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Client VPS Storage</h4>
-              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">Input images on on-premise VPS<br>SSH Port 8989 | Multiple folders</p>
-            </div>
-            
-            <div class="diagram-arrow">↓</div>
-            
-            <div class="diagram-box">
-              <h4 style="color: var(--accent-color); margin-bottom: 10px;">SSH Bridge Layer</h4>
-              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">ControlMaster Pool<br>rsync with --protect-args<br>History Tracking</p>
-            </div>
-            
-            <div class="diagram-arrow">↓</div>
-            
-            <div class="diagram-box">
-              <h4 style="color: var(--accent-color); margin-bottom: 10px;">RunPod GPU Instance</h4>
-              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">NVIDIA A40/A100 GPUs<br>/workspace persistent storage<br>AI model inference at scale</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mb-4">
-            <div class="diagram-box">
-              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Processing Pipeline</h4>
-              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">Background Removal<br>(Rembg/BIREFNET/Recraft)<br>Classification (Main/Special/NoBG)<br>Revision Management</p>
-            </div>
-            
-            <div class="diagram-arrow">↓</div>
-            
-            <div class="diagram-box">
-              <h4 style="color: var(--accent-color); margin-bottom: 10px;">Return Transfer</h4>
-              <p style="margin: 0; font-size: 14px; word-wrap: break-word;">rsync back to VPS<br>Path normalization (IP_ → OP_)<br>Automated folder creation</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Results & Impact Section -->
     <section class="section" style="background: var(--surface-color);">
       <div class="container" data-aos="fade-up">
@@ -539,7 +492,7 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Quantified Results</h3>
             <ul style="font-size: 16px; line-height: 2;">
-              <li><strong>50,000+ images processed</strong> across multiple GTech projects</li>
+              <li><strong>18,000+ images processed</strong> in 1 month across GTech projects</li>
               <li><strong>75% faster processing</strong> compared to local infrastructure</li>
               <li><strong>99.5% system uptime</strong> with automatic error recovery</li>
               <li><strong>Zero security incidents</strong> with SSH key authentication</li>
