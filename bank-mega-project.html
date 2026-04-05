@@ -66,33 +66,57 @@
     }
 
     .stat-card {
-      background: var(--surface-color);
-      padding: 30px;
-      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.1) 0%, rgba(0, 178, 255, 0.02) 100%);
+      padding: 35px 25px;
+      border-radius: 16px;
       text-align: center;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
+      border: 2px solid rgba(0, 178, 255, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
     .stat-card:hover {
       border-color: var(--accent-color);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 178, 255, 0.2);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 178, 255, 0.3);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
     }
 
     .stat-number {
-      font-size: 42px;
-      font-weight: 700;
+      font-size: 48px;
+      font-weight: 800;
       color: var(--accent-color);
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(0, 178, 255, 0.3);
+      position: relative;
+      z-index: 1;
     }
 
     .stat-label {
-      font-size: 14px;
-      color: var(--default-color);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
     }
 
     .section-title {
@@ -347,23 +371,28 @@
           </div>
         </div>
 
-        <!-- Stats Grid -->
+        <!-- Pipeline Performance Metrics -->
         <div class="stats-grid">
           <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-            <span class="stat-number">45,000+</span>
-            <span class="stat-label">Assets Automated</span>
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-images" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">20,000+</span>
+            </div>
+            <span class="stat-label">Assets Generated</span>
           </div>
           <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-            <span class="stat-number">7+</span>
-            <span class="stat-label">Enterprise Clients</span>
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-speedometer2" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">5x</span>
+            </div>
+            <span class="stat-label">Production Rate Improvement</span>
           </div>
           <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-            <span class="stat-number">4+</span>
-            <span class="stat-label">Years in Production</span>
-          </div>
-          <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-            <span class="stat-number">99.7%</span>
-            <span class="stat-label">System Uptime</span>
+            <div style="position: relative; display: inline-block;">
+              <i class="bi bi-patch-check" style="position: absolute; top: -5px; left: -30px; font-size: 24px; color: var(--accent-color); opacity: 0.3;"></i>
+              <span class="stat-number">95%+</span>
+            </div>
+            <span class="stat-label">Brand-Compliant Image Quality</span>
           </div>
         </div>
       </div>
@@ -381,11 +410,11 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 style="color: var(--accent-color); font-size: 24px; margin-bottom: 20px;">Key Achievements</h3>
             <ul style="font-size: 16px; line-height: 2;">
-              <li>✅ Generated automated 20,000+ marketing assets</li>
-              <li>✅ Achieved 95%+ image quality consistency across all generated assets</li>
-              <li>✅ Improved Production rate from 2000 per month to 8000 images per month</li>
+              <li>✅ Generated 20,000+ marketing assets through automated pipeline</li>
+              <li>✅ Achieved 95%+ brand-compliant image quality consistency</li>
+              <li>✅ Improved production rate from 2,000 to 10,000 images per month (5x improvement)</li>
               <li>✅ Multi-provider AI integration (Nano Banana, Imagen-4, Custom LoRA)</li>
-              <li>✅ Awarded 3x Best Employee of the Month</li>
+              <li>✅ Reduced manual design workload by 80%+ through intelligent automation</li>
             </ul>
           </div>
 
@@ -477,7 +506,7 @@
               </div>
               <h3 class="feature-title">Multi-Cloud Storage</h3>
               <p class="feature-description">
-                Automated hierarchical upload to Google Drive and AWS S3 with smart filename conventions (TTCCCNNNNN format) and organized folder structures.
+                Automated hierarchical upload to Google Drive and AWS S3 with smart filename conventions and organized folder structures.
               </p>
             </div>
           </div>
@@ -573,284 +602,6 @@
       </div>
     </section>
 
-    <!-- System Workflow Flowchart Section -->
-    <section class="section">
-      <div class="container" data-aos="fade-up">
-        <h2 class="section-title">Complete System Workflow</h2>
-        <p style="font-size: 18px; margin-top: 30px; margin-bottom: 50px; color: var(--default-color);">
-          End-to-end pipeline processing from input to multi-cloud distribution
-        </p>
-
-        <div class="row">
-          <!-- Step 1: Input Processing -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 1</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-upload" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Input Processing</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Parse theme, category, subcategory → Load MAIN TRAITS configuration → Extract reference images from ZIP (if provided) → Validate parameters and API credentials
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 2: Prompt Generation -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 2</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-chat-dots" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Automated Prompt Generation</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    <strong style="color: var(--accent-color);">Automatic Mode:</strong> Call AI with MAIN TRAITS → Generate N variations in batches of 3-4 → Post-process to continuous paragraphs<br>
-                    <strong style="color: var(--accent-color);">Manual Mode:</strong> Use provided prompt → Apply mandatory prefix if configured
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 3: AI Image Generation -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 3</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-stars" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Multi-Provider AI Generation</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Select AI provider (Nano-Banana/Imagen-4/Custom LoRA) → Round-robin region selection (4 GCP regions) → Call API with exponential backoff retry → Handle rate limits (429 errors) → Extract and decode base64 image → Save to temp directory
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 4: Background Removal -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 4</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-scissors" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Background Removal & Subject Optimization</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Call selected provider (PhotoRoom/Rembg/BIREFNET/SAM2) → Remove background to transparent PNG → Detect subject boundaries via alpha channel → Crop to subject bounding box → Calculate optimal scale maintaining aspect ratio → Resize to maximize canvas usage
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 5: Card Template Application -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="500">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 5</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-card-image" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Card Template Application (Optional)</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Load brand card template PNG → Calculate optimal subject placement in whitespace → Center subject within target area → Apply mathematically perfect rounded corners → Add drop shadow with blur → Save as _card.png variant
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 6: File Organization -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="600">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 6</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-folder2-open" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Smart File Organization</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Generate sequential numbers (TTCCCNNNNN format) → Ensure unique identifiers → Create clean base filenames → Organize into theme/category/subcategory folders → Generate multiple variants (original.png, _nobg.png, _card.png)
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 7: Documentation -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="700">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 7</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-file-earmark-spreadsheet" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Excel Metadata Generation</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Create Excel workbook → Add metadata columns (filename, prompt, timestamp) → Embed 150x150px image thumbnails → Format cells with alignment, borders, colors → Save with GMT+7 timestamp for tracking
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 8: Multi-Cloud Upload -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="800">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.15) 0%, rgba(0, 178, 255, 0.05) 100%); border: 2px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative;">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">STEP 8</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-cloud-upload" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Multi-Cloud Distribution</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    <strong style="color: var(--accent-color);">Google Drive:</strong> Create hierarchical folder structure → Upload all variants → Upload Excel metadata → Upload base64 files to dedicated folder<br>
-                    <strong style="color: var(--accent-color);">AWS S3:</strong> Upload to S3 bucket → Set appropriate ACL permissions → Enable backup redundancy
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Arrow Down -->
-          <div class="col-lg-12 text-center" style="margin: -10px 0;">
-            <i class="bi bi-arrow-down" style="font-size: 32px; color: var(--accent-color);"></i>
-          </div>
-
-          <!-- Step 9: Output & Cleanup -->
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="900">
-            <div style="background: linear-gradient(135deg, rgba(0, 178, 255, 0.25) 0%, rgba(0, 178, 255, 0.1) 100%); border: 3px solid var(--accent-color); border-radius: 16px; padding: 30px; margin-bottom: 25px; position: relative; box-shadow: 0 10px 30px rgba(0, 178, 255, 0.3);">
-              <div style="position: absolute; top: -15px; left: 30px; background: var(--background-color); padding: 5px 20px; border-radius: 20px; border: 2px solid var(--accent-color);">
-                <strong style="color: var(--accent-color); font-size: 14px;">FINAL STEP</strong>
-              </div>
-              <div class="row align-items-center">
-                <div class="col-md-2 text-center">
-                  <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #00ff88 0%, #00b359 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);">
-                    <i class="bi bi-check2-circle" style="font-size: 36px; color: #fff;"></i>
-                  </div>
-                </div>
-                <div class="col-md-10">
-                  <h3 style="color: #fff; font-size: 22px; margin-bottom: 10px;">Output Delivery & System Cleanup</h3>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--default-color);">
-                    Create comprehensive ZIP file with all variants → Return file paths and cloud URLs → Update tracking JSON files for auditing → Log completion statistics → Clean up temporary files → Process complete ✓
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Summary Stats -->
-          <div class="col-lg-12 text-center mt-4" data-aos="fade-up" data-aos-delay="1000">
-            <div style="background: var(--surface-color); border-radius: 12px; padding: 30px; border: 1px solid rgba(0, 178, 255, 0.3);">
-              <h4 style="color: var(--accent-color); font-size: 20px; margin-bottom: 20px;">
-                <i class="bi bi-lightning-charge"></i> Pipeline Performance Metrics
-              </h4>
-              <div class="row">
-                <div class="col-md-3">
-                  <div style="font-size: 32px; font-weight: 700; color: var(--accent-color);">50-100</div>
-                  <div style="font-size: 14px; color: var(--default-color);">Images/Hour</div>
-                </div>
-                <div class="col-md-3">
-                  <div style="font-size: 32px; font-weight: 700; color: var(--accent-color);">95%+</div>
-                  <div style="font-size: 14px; color: var(--default-color);">Quality Consistency</div>
-                </div>
-                <div class="col-md-3">
-                  <div style="font-size: 32px; font-weight: 700; color: var(--accent-color);">4</div>
-                  <div style="font-size: 14px; color: var(--default-color);">GCP Regions</div>
-                </div>
-                <div class="col-md-3">
-                  <div style="font-size: 32px; font-weight: 700; color: var(--accent-color);">99.7%</div>
-                  <div style="font-size: 14px; color: var(--default-color);">System Uptime</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Results & Impact Section -->
     <section class="section" style="background: var(--surface-color);">

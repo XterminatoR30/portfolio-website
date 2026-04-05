@@ -799,30 +799,74 @@ section,
     transition: none;
   }
 }
-/* Hero Section Custom Buttons */
+/* Hero Section Custom Buttons - Enhanced Floating Design */
+.hero .cta-buttons {
+  display: flex;
+  gap: 25px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .hero .hero-btn {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border: 2px solid var(--accent-color);
-  border-radius: 8px;
-  padding: 12px 28px;
-  font-size: 15px;
-  font-weight: 600;
-  text-transform: none;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #0056b3 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 18px 45px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 178, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 178, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: floatButton 3s ease-in-out infinite;
+}
+
+.hero .hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.hero .hero-btn:hover::before {
+  left: 100%;
 }
 
 .hero .hero-btn:hover {
-  background-color: transparent;
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 178, 255, 0.4);
+  background: linear-gradient(135deg, #0056b3 0%, var(--accent-color) 100%);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 45px rgba(0, 178, 255, 0.6);
   text-decoration: none;
+  animation: none;
+}
+
+.hero .hero-btn:nth-child(2) {
+  animation-delay: -1.5s;
+}
+
+.hero .hero-btn:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 5px 20px rgba(0, 178, 255, 0.5);
+}
+
+@keyframes floatButton {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /*--------------------------------------------------------------
