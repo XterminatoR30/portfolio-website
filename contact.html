@@ -7,6 +7,13 @@
   <title>Contact - Kevin Cliff Gunawan</title>
   <meta name="description" content="Contact Kevin Cliff Gunawan - Senior AI Scientist">
   <meta name="keywords" content="AI, Machine Learning, Contact, Kevin Cliff Gunawan">
+  
+  <!-- Security Meta Tags -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noarchive">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 
   <!-- Favicons -->
   <link href="assets\img\favicon-32x32.png" rel="icon">
@@ -26,6 +33,35 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Security: Prevent text selection and copying */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    
+    /* Prevent dragging images and links */
+    img, a {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: auto;
+    }
+    
+    /* Allow form inputs to be selectable */
+    input, textarea, select {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
 
   <!-- =======================================================
   * Template Name: Personal
@@ -198,6 +234,118 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Security Protection Script -->
+  <script>
+    (function() {
+      'use strict';
+      
+      const warningStyle = 'color: red; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px black;';
+      const messageStyle = 'color: orange; font-size: 16px;';
+      console.log('%c⚠️ WARNING! ⚠️', warningStyle);
+      console.log('%cThis is a browser feature intended for developers.', messageStyle);
+      console.log('%cIf someone told you to copy-paste something here, it is likely a scam.', messageStyle);
+      console.log('%c© Kevin Cliff Gunawan - All Rights Reserved', messageStyle);
+      
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      }, false);
+      
+      document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 123) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode === 85) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+          e.preventDefault();
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode === 83) {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+      
+      let devtoolsOpen = false;
+      const threshold = 160;
+      
+      const detectDevTools = () => {
+        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        
+        if (widthThreshold || heightThreshold) {
+          if (!devtoolsOpen) {
+            devtoolsOpen = true;
+            console.clear();
+            console.log('%c⛔ STOP! ⛔', 'color: red; font-size: 50px; font-weight: bold;');
+            console.log('%cUnauthorized access to source code is prohibited.', 'color: red; font-size: 20px;');
+          }
+        } else {
+          devtoolsOpen = false;
+        }
+      };
+      
+      setInterval(detectDevTools, 500);
+      
+      document.onselectstart = function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+          return true;
+        }
+        return false;
+      };
+      
+      document.addEventListener('copy', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+          return true;
+        }
+        e.preventDefault();
+        return false;
+      }, false);
+      
+      document.addEventListener('cut', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+          return true;
+        }
+        e.preventDefault();
+        return false;
+      }, false);
+      
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      }, false);
+      
+      setInterval(function() {
+        if (!devtoolsOpen) {
+          console.clear();
+        }
+      }, 3000);
+      
+      window.addEventListener('beforeprint', function(e) {
+        e.preventDefault();
+        alert('Printing is disabled for this page.');
+        return false;
+      });
+      
+      if (window.top !== window.self) {
+        window.top.location = window.self.location;
+      }
+      
+    })();
+  </script>
 
 </body>
 
